@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ruffle flash player</title>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 15px;
+            background: #121212;
+            color: #e0e0e0;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h1 {
+            margin: 0 0 12px 0;
+            font-size: 1.4rem;
+        }
+        .controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-end;
+            background: #1e1e1e;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            width: 92vw;
+            max-width: 1600px;
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        label {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        select, input, button {
+            background: #2a2a2a;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 8px 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            cursor: pointer;
+            height: 36px;
+        }
+        input[type="text"] {
+            cursor: text;
+        }
+        button:hover, select:hover {
+            background: #353535;
+        }
+        .btn-group {
+            display: flex;
+            gap: 8px;
+        }
+        #player-container {
+            width: 92vw;
+            height: 80vh;
+            max-width: 1600px;
+            background: #000;
+            border: 2px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        #player-container object, #player-container embed, #player-container ruffle-player {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>flash player</h1>
+
+    <div class="controls">
+        <div class="control-group">
+            <label for="search-input">filter gstore games:</label>
+            <input type="text" id="search-input" placeholder="filter local list...">
+        </div>
+
+        <div class="control-group">
+            <label for="repo-select">gstore repo files:</label>
+            <select id="repo-select">
+                <option value="">loading games from gstore...</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="local-file">upload swf file:</label>
+            <input type="file" id="local-file" accept=".swf">
+        </div>
+
+        <div class="btn-group">
+            <button id="reload-btn">restart</button>
+            <button id="fullscreen-btn">fullscreen</button>
+        </div>
+    </div>
+
+    <div id="player-container">
+        <p style="color: #666;">select a game or upload an swf to start playing</p>
+    </div>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("player-container");
+            const repoSelect = document.getElementById("repo-select");
+            const localFile = document.getElementById("local-file");
+            const searchInput = document.getElementById("search-input");
+            const reloadBtn = document.getElementById("reload-btn");
+            const fullscreenBtn = document.getElementById("fullscreen-btn");
+
+            let currentPlayer = null;
+            let currentSource = null;
+            let currentIsFile = false;
+            let allGames = [];
+
+            async function loadRepoGames() {
+                try {
+                    let response = await fetch("https://api.github.com/repos/BinBashBanana/gstore/git/trees/master?recursive=1");
+                    if (!response.ok) {
+                        response = await fetch("https://api.github.com/repos/BinBashBanana/gstore/git/trees/main?recursive=1");
+                    }
+                    if (!response.ok) throw new Error("fetch failed");
+
+                    const data = await response.json();
+                    
+                    const swfFiles = data.tree.filter(file => file.path.toLowerCase().endsWith('.swf'));
+
+                    allGames = swfFiles.map(file => {
+                        const fileName = file.path.split('/').pop();
+                        const cleanName = fileName.replace(/\.swf$/i, '').replace(/[-_]/g, ' ');
+                        return {
+                            name: cleanName,
+                            url: 'https://raw.githubusercontent.com/BinBashBanana/gstore/master/' + file.path
+                        };
+                    });
+
+                    renderDropdown(allGames);
+                } catch (err) {
+                    console.error(err);
+                    repoSelect.innerHTML = '<option value="">failed to load games</option>';
+                }
+            }
+
+            function renderDropdown(gamesList) {
+                repoSelect.innerHTML = '<option value="">select a game (' + gamesList.length + ' found)</option>';
+                gamesList.forEach(game => {
+                    const option = document.createElement("option");
+                    option.value = game.url;
+                    option.textContent = game.name;
+                    repoSelect.appendChild(option);
+                });
+            }
+
+            searchInput.addEventListener("input", (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                const filtered = allGames.filter(g => g.name.toLowerCase().includes(query));
+                renderDropdown(filtered);
+            });
+
+            async function loadSwf(source, isFileObject = false) {
+                currentSource = source;
+                currentIsFile = isFileObject;
+                container.innerHTML = '<p style="color: #aaa;">loading swf...</p>';
+
+                if (isFileObject) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        container.innerHTML = "";
+                        const ruffle = window.RufflePlayer.newest();
+                        currentPlayer = ruffle.createPlayer();
+                        container.appendChild(currentPlayer);
+                        const data = new Uint8Array(e.target.result);
+                        currentPlayer.load({ data: data });
+                    };
+                    reader.readAsArrayBuffer(source);
+                    return;
+                }
+
+                try {
+                    const response = await fetch(source);
+                    if (!response.ok) throw new Error("download failed");
+
+                    const buffer = await response.arrayBuffer();
+                    container.innerHTML = "";
+                    const ruffle = window.RufflePlayer.newest();
+                    currentPlayer = ruffle.createPlayer();
+                    container.appendChild(currentPlayer);
+                    currentPlayer.load({ data: new Uint8Array(buffer) });
+                } catch (err) {
+                    console.error(err);
+                    container.innerHTML = '<p style="color: #ff6666;">failed to download swf file</p>';
+                }
+            }
+
+            repoSelect.addEventListener("change", (e) => {
+                if (e.target.value) {
+                    localFile.value = "";
+                    loadSwf(e.target.value, false);
+                }
+            });
+
+            localFile.addEventListener("change", (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    repoSelect.value = "";
+                    loadSwf(file, true);
+                }
+            });
+
+            reloadBtn.addEventListener("click", () => {
+                if (currentSource) {
+                    loadSwf(currentSource, currentIsFile);
+                }
+            });
+
+            fullscreenBtn.addEventListener("click", () => {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                }
+            });
+
+            loadRepoGames();
+        });
+    </script>
+</body>
+</html>

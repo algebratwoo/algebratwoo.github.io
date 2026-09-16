@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Black Truffle | Botanical & Culinary Explorer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        truffle: {
+                            950: '#0C0A09',
+                            900: '#171412',
+                            800: '#26201D',
+                            700: '#3D3430',
+                            600: '#5C4F49',
+                        },
+                        gold: {
+                            400: '#F3D370',
+                            500: '#D4AF37',
+                            600: '#AA8822',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #0C0A09;
+            color: #E6DDD5;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        /* Subtle background organic pattern */
+        .bg-truffle-pattern {
+            background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 60%),
+                              radial-gradient(circle at 80% 20%, rgba(61, 52, 48, 0.3) 0%, transparent 40%);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF0CA 0%, #D4AF37 50%, #99771C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+
+        .glass-panel {
+            background: rgba(23, 20, 18, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0C0A09;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #26201D;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-truffle-950 text-stone-200 antialiased selection:bg-gold-500 selection:text-truffle-950">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center group-hover:border-gold-500 transition-colors">
+                    <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                </div>
+                <span class="font-serif text-xl font-bold tracking-wide text-stone-100 group-hover:text-gold-400 transition-colors">TUBER MELANOSPORUM</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-300">
+                <a href="#quick-facts" class="hover:text-gold-400 transition-colors">Botanical Facts</a>
+                <a href="#sensory-profile" class="hover:text-gold-400 transition-colors">Sensory Wheel</a>
+                <a href="#culinary-guide" class="hover:text-gold-400 transition-colors">Culinary Guide</a>
+                <a href="#science" class="hover:text-gold-400 transition-colors">Ecology</a>
+            </nav>
+
+            <a href="#quick-facts" class="px-5 py-2 rounded-full bg-gold-500 text-truffle-950 font-semibold text-sm hover:bg-gold-400 transition-all shadow-lg hover:shadow-gold-500/20">
+                Explore Species
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-24 md:pt-48 md:pb-36 bg-truffle-pattern overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-widest mb-6">
+                    <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+                    Botanical Monograph & Culinary Guide
+                </div>
+                
+                <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">
+                    The Black Truffle: <br/>
+                    <span class="gold-gradient-text">Culinary Black Gold</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-stone-300 leading-relaxed mb-10 font-light">
+                    Deep beneath the calcareous soils of Southern Europe thrives <em class="italic text-gold-400">Tuber melanosporum</em>—an extraordinary subterranean fungus forged through ancient symbiosis with oak and hazel roots.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#quick-facts" class="px-7 py-3.5 rounded-full bg-gold-500 text-truffle-950 font-bold hover:bg-gold-400 transition-all shadow-xl flex items-center gap-2">
+                        <span>Discover Quick Facts</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <a href="#sensory-profile" class="px-7 py-3.5 rounded-full bg-truffle-900 border border-gold-500/30 text-stone-200 hover:border-gold-500 hover:text-gold-400 transition-all">
+                        Examine Flavor Profile
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Stats Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20">
+                <div class="glass-panel p-6 rounded-2xl border-stone-800">
+                    <div class="text-3xl font-serif font-bold text-gold-400 mb-1">$1,200+</div>
+                    <div class="text-xs text-stone-400 uppercase tracking-wider">Average Price / Kg</div>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl border-stone-800">
+                    <div class="text-3xl font-serif font-bold text-gold-400 mb-1">pH 7.5 - 8.5</div>
+                    <div class="text-xs text-stone-400 uppercase tracking-wider">Optimal Alkaline Soil</div>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl border-stone-800">
+                    <div class="text-3xl font-serif font-bold text-gold-400 mb-1">4 - 12 months</div>
+                    <div class="text-xs text-stone-400 uppercase tracking-wider">Maturation Cycle</div>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl border-stone-800">
+                    <div class="text-3xl font-serif font-bold text-gold-400 mb-1">50+</div>
+                    <div class="text-xs text-stone-400 uppercase tracking-wider">Volatile Compounds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Facts Section -->
+    <section id="quick-facts" class="py-24 bg-truffle-900/50 border-y border-gold-500/10 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-stone-100 mb-4">Core Botanical Knowledge</h2>
+                <p class="text-stone-400">Click any card below to uncover essential botanical, ecological, and economic facts about <em class="italic text-gold-400">Tuber melanosporum</em>.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="facts-grid">
+                <!-- Fact 1 -->
+                <div class="fact-card glass-panel p-8 rounded-2xl cursor-pointer hover:border-gold-500/50 transition-all duration-300 group relative" onclick="toggleFactModal(0)">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Taxonomy</span>
+                    <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1 mb-3 group-hover:text-gold-400 transition-colors">Species Classification</h3>
+                    <p class="text-stone-400 text-sm line-clamp-3">Known primarily as the Périgord Black Truffle, it belongs to the Ascomycota division and forms subterranean fruiting bodies...</p>
+                    <div class="mt-6 flex items-center text-xs font-semibold text-gold-400 gap-1">
+                        <span>Read Detail</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                </div>
+
+                <!-- Fact 2 -->
+                <div class="fact-card glass-panel p-8 rounded-2xl cursor-pointer hover:border-gold-500/50 transition-all duration-300 group relative" onclick="toggleFactModal(1)">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Symbiosis</span>
+                    <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1 mb-3 group-hover:text-gold-400 transition-colors">Mycorrhizal Trees</h3>
+                    <p class="text-stone-400 text-sm line-clamp-3">Truffles cannot perform photosynthesis. They depend on a mutually beneficial partnership with host tree roots like Holm Oak and Hazel...</p>
+                    <div class="mt-6 flex items-center text-xs font-semibold text-gold-400 gap-1">
+                        <span>Read Detail</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                </div>
+
+                <!-- Fact 3 -->
+                <div class="fact-card glass-panel p-8 rounded-2xl cursor-pointer hover:border-gold-500/50 transition-all duration-300 group relative" onclick="toggleFactModal(2)">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Harvesting</span>
+                    <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1 mb-3 group-hover:text-gold-400 transition-colors">Canine Detection</h3>
+                    <p class="text-stone-400 text-sm line-clamp-3">While female pigs were historically used due to androstenol attraction, trained dogs (like the Lagotto Romagnolo) are now standard...</p>
+                    <div class="mt-6 flex items-center text-xs font-semibold text-gold-400 gap-1">
+                        <span>Read Detail</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                </div>
+
+                <!-- Fact 4 -->
+                <div class="fact-card glass-panel p-8 rounded-2xl cursor-pointer hover:border-gold-500/50 transition-all duration-300 group relative" onclick="toggleFactModal(3)">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Economy</span>
+                    <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1 mb-3 group-hover:text-gold-400 transition-colors">High Market Value</h3>
+                    <p class="text-stone-400 text-sm line-clamp-3">Extreme rarity, complex cultivation requirements, and short shelf-life make black truffles one of the most expensive crops on Earth...</p>
+                    <div class="mt-6 flex items-center text-xs font-semibold text-gold-400 gap-1">
+                        <span>Read Detail</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                </div>
+
+                <!-- Fact 5 -->
+                <div class="fact-card glass-panel p-8 rounded-2xl cursor-pointer hover:border-gold-500/50 transition-all duration-300 group relative" onclick="toggleFactModal(4)">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 002.5-2.5V11.4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Ecology</span>
+                    <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1 mb-3 group-hover:text-gold-400 transition-colors">The "Brûlé" Phenomenon</h3>
+                    <p class="text-stone-400 text-sm line-clamp-3">Around active truffle trees, a distinctive barren circle forms on the soil where grass ceases to grow due to fungal biochemical secretion...</p>
+                    <div class="mt-6 flex items-center text-xs font-semibold text-gold-400 gap-1">
+                        <span>Read Detail</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                </div>
+
+                <!-- Fact 6 -->
+                <div class="fact-card glass-panel p-8 rounded-2xl cursor-pointer hover:border-gold-500/50 transition-all duration-300 group relative" onclick="toggleFactModal(5)">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Chemistry</span>
+                    <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1 mb-3 group-hover:text-gold-400 transition-colors">Volatile Aroma Science</h3>
+                    <p class="text-stone-400 text-sm line-clamp-3">Dimethyl sulfide and 2-methylbutanal give black truffles their signature complex smell of wet earth, cocoa, garlic, and musk...</p>
+                    <div class="mt-6 flex items-center text-xs font-semibold text-gold-400 gap-1">
+                        <span>Read Detail</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Quick Facts -->
+    <div id="fact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/80 backdrop-blur-md hidden transition-opacity duration-300">
+        <div class="glass-panel max-w-2xl w-full p-8 rounded-3xl border border-gold-500/30 relative transform transition-transform shadow-2xl">
+            <button onclick="closeFactModal()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-100 p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <span id="modal-tag" class="text-xs font-semibold uppercase tracking-widest text-gold-400">Category</span>
+            <h3 id="modal-title" class="font-serif text-3xl font-bold text-stone-100 mt-2 mb-4">Fact Title</h3>
+            <div id="modal-body" class="text-stone-300 leading-relaxed text-sm space-y-3">
+                <!-- Injected via JS -->
+            </div>
+            <div class="mt-8 pt-4 border-t border-stone-800 flex justify-end">
+                <button onclick="closeFactModal()" class="px-6 py-2.5 rounded-full bg-gold-500 text-truffle-950 font-semibold text-sm hover:bg-gold-400 transition-colors">
+                    Close Window
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sensory Profile Interactive Wheel / Card Selector -->
+    <section id="sensory-profile" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5">
+                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Organoleptic Spectrum</span>
+                    <h2 class="font-serif text-4xl font-bold text-stone-100 mt-2 mb-6">The Sensory Profile</h2>
+                    <p class="text-stone-400 leading-relaxed mb-8">
+                        The aroma of <em class="italic text-gold-400">Tuber melanosporum</em> is a delicate symphony of volatile organic compounds. Unlike white truffles, black truffles possess a warm, woody, and intensely rich umami fragrance.
+                    </p>
+
+                    <!-- Interactive Compound Selector Buttons -->
+                    <div class="space-y-3" id="sensory-buttons">
+                        <button onclick="selectSensory(0)" class="sensory-btn w-full text-left p-4 rounded-xl border border-gold-500/30 bg-gold-500/10 flex items-center justify-between group transition-all">
+                            <div>
+                                <h4 class="font-semibold text-gold-400 text-base">Forest Floor & Damp Earth</h4>
+                                <p class="text-xs text-stone-400">Primary volatile compound: 1-octen-3-ol</p>
+                            </div>
+                            <span class="text-gold-400 font-bold">&rarr;</span>
+                        </button>
+
+                        <button onclick="selectSensory(1)" class="sensory-btn w-full text-left p-4 rounded-xl border border-stone-800 bg-truffle-900/40 hover:border-gold-500/30 flex items-center justify-between group transition-all">
+                            <div>
+                                <h4 class="font-semibold text-stone-200 text-base">Musky Garlic & Sulfur</h4>
+                                <p class="text-xs text-stone-400">Primary volatile compound: Dimethyl sulfide</p>
+                            </div>
+                            <span class="text-stone-500 group-hover:text-gold-400 font-bold">&rarr;</span>
+                        </button>
+
+                        <button onclick="selectSensory(2)" class="sensory-btn w-full text-left p-4 rounded-xl border border-stone-800 bg-truffle-900/40 hover:border-gold-500/30 flex items-center justify-between group transition-all">
+                            <div>
+                                <h4 class="font-semibold text-stone-200 text-base">Toasted Hazelnut & Butter</h4>
+                                <p class="text-xs text-stone-400">Primary volatile compound: 2-methylbutanal</p>
+                            </div>
+                            <span class="text-stone-500 group-hover:text-gold-400 font-bold">&rarr;</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Visual Display -->
+                <div class="lg:col-span-7">
+                    <div class="glass-panel p-8 md:p-10 rounded-3xl border border-gold-500/20 relative">
+                        <!-- Dynamic Content Box -->
+                        <div id="sensory-display">
+                            <div class="flex items-center justify-between border-b border-stone-800 pb-6 mb-6">
+                                <div>
+                                    <span class="text-xs font-mono text-gold-400 uppercase tracking-widest">Aroma Component 01</span>
+                                    <h3 class="font-serif text-3xl font-bold text-stone-100 mt-1" id="sensory-title">Forest Floor & Damp Earth</h3>
+                                </div>
+                                <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-serif font-bold text-xl" id="sensory-score">
+                                    95%
+                                </div>
+                            </div>
+
+                            <p class="text-stone-300 leading-relaxed mb-6" id="sensory-desc">
+                                Gives black truffles their signature foundational scent—evoking rain-soaked oak leaves, dark humus soil, and ancient woodland flora. This note blooms as soon as the truffle is shaved warm.
+                            </p>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-stone-800/60">
+                                <div>
+                                    <span class="text-xs text-stone-500 uppercase tracking-wider block mb-1">Culinary Synergies</span>
+                                    <p class="text-sm font-medium text-gold-400" id="sensory-pairing">Pastured Eggs, Cultured Butter, Aged Parmigiano</p>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-stone-500 uppercase tracking-wider block mb-1">Volatile Stability</span>
+                                    <p class="text-sm font-medium text-stone-200" id="sensory-heat">Heat-sensitive (Best served &lt; 60°C)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Culinary Guide Section -->
+    <section id="culinary-guide" class="py-24 bg-truffle-900/40 border-t border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Gastronomic Excellence</span>
+                <h2 class="font-serif text-4xl font-bold text-stone-100 mt-2 mb-4">Culinary Preparation Guide</h2>
+                <p class="text-stone-400">Black truffles contain fat-soluble aromatic molecules that degrade under direct high heat. Master the art of preservation and infusion.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex p-1 rounded-full glass-panel border border-stone-800">
+                    <button onclick="switchTab('trad')" id="tab-trad" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-gold-500 text-truffle-950 shadow-md">
+                        Traditional Methods
+                    </button>
+                    <button onclick="switchTab('modern')" id="tab-modern" class="px-6 py-2.5 rounded-full text-sm font-semibold text-stone-400 hover:text-stone-100 transition-all">
+                        Modern Innovations
+                    </button>
+                    <button onclick="switchTab('rules')" id="tab-rules" class="px-6 py-2.5 rounded-full text-sm font-semibold text-stone-400 hover:text-stone-100 transition-all">
+                        Golden Rules
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="tab-content" class="max-w-4xl mx-auto glass-panel p-8 md:p-12 rounded-3xl border border-stone-800">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecology & Science Section -->
+    <section id="science" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Subterranean Ecosystems</span>
+                    <h2 class="font-serif text-4xl font-bold text-stone-100 mt-2 mb-6">The Mycorrhizal Network</h2>
+                    <p class="text-stone-300 leading-relaxed mb-4">
+                        Truffles cannot survive in isolation. They forge an intricate subterranean relationship called a <strong>mycorrhiza</strong> with host trees—exchanging minerals and moisture absorbed by fungal hyphae for carbohydrates synthesized by the tree.
+                    </p>
+                    <p class="text-stone-400 text-sm leading-relaxed mb-6">
+                        Cultivating black truffles requires inoculating tree saplings with fungal spores and waiting anywhere from 5 to 10 years before the first harvest can take place.
+                    </p>
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="p-3 rounded-xl bg-gold-500/10 border border-gold-500/20 text-gold-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-stone-200 font-semibold text-sm">Oak & Hazel Orchards (Truffières)</h4>
+                            <p class="text-stone-400 text-xs">Carefully balanced soil pH and irrigation sustain high-yield harvests.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl border border-gold-500/20 bg-truffle-900/80">
+                    <h3 class="font-serif text-2xl font-bold text-stone-100 mb-4">Optimal Growth Parameters</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 rounded-full bg-gold-400 mt-2"></span>
+                            <div>
+                                <strong class="text-stone-200 text-sm block">Soil Chemistry:</strong>
+                                <span class="text-stone-400 text-xs">Requires highly calcareous, well-draining limestone soils with a pH around 7.8 to 8.3.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 rounded-full bg-gold-400 mt-2"></span>
+                            <div>
+                                <strong class="text-stone-200 text-sm block">Climatic Seasons:</strong>
+                                <span class="text-stone-400 text-xs">Warm summers foster fungal growth; gentle winter frosts trigger ascocarp maturation.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 rounded-full bg-gold-400 mt-2"></span>
+                            <div>
+                                <strong class="text-stone-200 text-sm block">Harvest Period:</strong>
+                                <span class="text-stone-400 text-xs">November through March in the Northern Hemisphere (Périgord, Provence, Spain, Italy).</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-truffle-950 border-t border-gold-500/10 py-16 text-stone-400 text-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="md:col-span-2">
+                    <a href="#" class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center">
+                            <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        </div>
+                        <span class="font-serif text-lg font-bold text-stone-100 tracking-wide">TUBER MELANOSPORUM</span>
+                    </a>
+                    <p class="text-stone-500 max-w-sm text-xs leading-relaxed">
+                        An educational digital monograph devoted to preserving botanical knowledge and culinary science regarding European subterranean fungi.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-stone-200 text-xs uppercase tracking-widest mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#quick-facts" class="hover:text-gold-400 transition-colors">Botanical Facts</a></li>
+                        <li><a href="#sensory-profile" class="hover:text-gold-400 transition-colors">Sensory Profile</a></li>
+                        <li><a href="#culinary-guide" class="hover:text-gold-400 transition-colors">Culinary Guide</a></li>
+                        <li><a href="#science" class="hover:text-gold-400 transition-colors">Ecology</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-stone-200 text-xs uppercase tracking-widest mb-4">Site Information</h4>
+                    <ul class="space-y-2 text-xs">
+                        <!-- About link directly pointing to /player/index.html -->
+                        <li><a href="/player/index.html" class="hover:text-gold-400 transition-colors text-gold-400/90 font-medium hover:underline">About</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Research Archives</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Legal & Citation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-stone-900 flex flex-col md:flex-row items-center justify-between text-xs text-stone-600 gap-4">
+                <p>&copy; 2026 Black Truffle Educational Initiative. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="/player/index.html" class="hover:text-stone-400 transition-colors">About App</a>
+                    <a href="#" class="hover:text-stone-400 transition-colors">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data for Quick Facts Modal
+        const factDetails = [
+            {
+                tag: "Taxonomy & Identification",
+                title: "Tuber melanosporum (Périgord Truffle)",
+                body: `
+                    <p>The Périgord black truffle is a subterranean ascocarp characterized by a dark brown or charcoal rounded exterior with small, pyramidal warts.</p>
+                    <p>When sliced open, its interior gleams with dark brown or black marbling traversed by delicate white veinlets that turn reddish-brown as the spore matures.</p>
+                    <p>Unlike fake synthetic truffle oil made with 2-methylbutanal, genuine <em>Tuber melanosporum</em> offers a subtle, multifaceted flavor that cannot be accurately replicated artificially.</p>
+                `
+            },
+            {
+                tag: "Symbiosis & Hosts",
+                title: "Mycorrhizal Trees & Soil Biota",
+                body: `
+                    <p>Truffles form obligate ectomycorrhizal associations primarily with Oak (<em>Quercus robur</em>, <em>Quercus ilex</em>) and Hazelnut (<em>Corylus avellana</em>) trees.</p>
+                    <p>The fungus wraps its mycelial network around the tree root tips, increasing the root surface area for water and nutrient uptake while absorbing carbohydrate photo-assimilates from the tree host.</p>
+                `
+            },
+            {
+                tag: "Harvesting & Foraging",
+                title: "Traditional Dog Foraging",
+                body: `
+                    <p>Historical truffle hunters relied on female pigs, which naturally react to truffle scent because it contains androstenol, a pheromone present in boar saliva.</p>
+                    <p>However, because pigs often damage the subterranean root mycelium and eat the truffles, modern trufficulteurs exclusively train specially bred dogs (like the Lagotto Romagnolo) to locate ripe ascocarps without digging aggressively.</p>
+                `
+            },
+            {
+                tag: "Economic Impact",
+                title: "Culinary Rarity & Value Dynamics",
+                body: `
+                    <p>Black truffles command anywhere from $1,000 to over $2,000 per kilogram depending on seasonal supply, size, and grade quality.</p>
+                    <p>Global warming, erratic winter precipitation, and deforestation have led to lower natural yields across traditional Mediterranean regions, elevating truffle orchards (truffières) into lucrative agricultural investments.</p>
+                `
+            },
+            {
+                tag: "Ecology & Phenology",
+                title: "The 'Brûlé' Burn Circle",
+                body: `
+                    <p>Around the base of a truffle-bearing host tree, a distinct circular barren zone called the 'brûlé' (burnt area) often develops.</p>
+                    <p>The truffle mycelium releases herbicidal volatile organic compounds and competes aggressively for root space, suppressing grass and surrounding vegetation to optimize soil temperature and sunlight for subterranean spore development.</p>
+                `
+            },
+            {
+                tag: "Biochemistry",
+                title: "Volatile Aroma Chemistry",
+                body: `
+                    <p>Over 50 volatile compounds have been identified in fresh black truffles.</p>
+                    <p>The dominant contributors include dimethyl sulfide (cabbage/sulfur note), 2-methylbutanal (toasted nut/cocoa), and 1-octen-3-ol (mushroom/forest earth).</p>
+                    <p>These aromatic volatiles evaporate rapidly at room temperature and degrade under high heat, which is why truffles are shaved fresh over warm food rather than cooked into hot sauces.</p>
+                `
+            }
+        ];
+
+        function toggleFactModal(index) {
+            const fact = factDetails[index];
+            document.getElementById('modal-tag').innerText = fact.tag;
+            document.getElementById('modal-title').innerText = fact.title;
+            document.getElementById('modal-body').innerHTML = fact.body;
+            
+            const modal = document.getElementById('fact-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.add('opacity-100'), 10);
+        }
+
+        function closeFactModal() {
+            const modal = document.getElementById('fact-modal');
+            modal.classList.remove('opacity-100');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        // Data for Sensory Wheel / Selector
+        const sensoryData = [
+            {
+                title: "Forest Floor & Damp Earth",
+                score: "95%",
+                desc: "Gives black truffles their signature foundational scent—evoking rain-soaked oak leaves, dark humus soil, and ancient woodland flora. This note blooms as soon as the truffle is shaved warm.",
+                pairing: "Pastured Eggs, Cultured Butter, Aged Parmigiano",
+                heat: "Heat-sensitive (Best served < 60°C)"
+            },
+            {
+                title: "Musky Garlic & Sulfur",
+                score: "88%",
+                desc: "A rich, savory olfactory note created by organic sulfur volatiles. It delivers a gentle pungency akin to slow-roasted garlic without the sharp acidity, lingering pleasantly on the palate.",
+                pairing: "Prime Beef Carpaccio, Warm Tagliatelle, Creamy Risotto",
+                heat: "Infuses rapidly into animal fats & lipids"
+            },
+            {
+                title: "Toasted Hazelnut & Butter",
+                score: "82%",
+                desc: "Provides a warm, nutty backbone reminiscent of toasted hazelnut skins, brown butter, and dark cocoa nibs. It creates a velvety richness that balances the pungency.",
+                pairing: "Roasted Poultry, Potato Purée, Seared Scallops",
+                heat: "Pairs ideally with warm emulsion sauces"
+            }
+        ];
+
+        function selectSensory(index) {
+            const data = sensoryData[index];
+            const buttons = document.querySelectorAll('.sensory-btn');
+            
+            buttons.forEach((btn, idx) => {
+                if (idx === index) {
+                    btn.className = "sensory-btn w-full text-left p-4 rounded-xl border border-gold-500/30 bg-gold-500/10 flex items-center justify-between group transition-all";
+                } else {
+                    btn.className = "sensory-btn w-full text-left p-4 rounded-xl border border-stone-800 bg-truffle-900/40 hover:border-gold-500/30 flex items-center justify-between group transition-all";
+                }
+            });
+
+            const display = document.getElementById('sensory-display');
+            display.style.opacity = '0';
+
+            setTimeout(() => {
+                document.getElementById('sensory-title').innerText = data.title;
+                document.getElementById('sensory-score').innerText = data.score;
+                document.getElementById('sensory-desc').innerText = data.desc;
+                document.getElementById('sensory-pairing').innerText = data.pairing;
+                document.getElementById('sensory-heat').innerText = data.heat;
+                display.style.opacity = '1';
+            }, 150);
+        }
+
+        // Data for Culinary Tabs
+        const tabContentData = {
+            trad: `
+                <div class="space-y-6">
+                    <div class="border-b border-stone-800 pb-4">
+                        <span class="text-xs uppercase tracking-widest text-gold-400 font-mono">Classical Technique</span>
+                        <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1">Thin Shaving over Warm Fats</h3>
+                    </div>
+                    <p class="text-stone-300 leading-relaxed text-sm">
+                        Traditional French and Italian gastronomy dictates that black truffles should never be subjected to direct cooking or high boiling temperatures. Instead, they are microplaned or shaved paper-thin using a stainless steel truffle shaver directly onto warm, buttered pasta, fried eggs, or creamy polenta.
+                    </p>
+                    <div class="bg-truffle-950 p-4 rounded-xl border border-gold-500/10 text-xs text-stone-400">
+                        <strong class="text-gold-400">Pro Tip:</strong> Store fresh truffles in an airtight glass jar alongside raw eggs for 48 hours. The porous eggshells absorb the volatile aroma, infusing the eggs internally before cooking!
+                    </div>
+                </div>
+            `,
+            modern: `
+                <div class="space-y-6">
+                    <div class="border-b border-stone-800 pb-4">
+                        <span class="text-xs uppercase tracking-widest text-gold-400 font-mono">Modern Culinary Science</span>
+                        <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1">Sous-Vide & Lipid Infusions</h3>
+                    </div>
+                    <p class="text-stone-300 leading-relaxed text-sm">
+                        Modern chefs leverage low-temperature sous-vide precision (55°C – 60°C) to extract fat-soluble aromatic molecules into neutral fats, clarified butter, or heavy cream without thermal degradation.
+                    </p>
+                    <p class="text-stone-300 leading-relaxed text-sm">
+                        Finely minced black truffle integrated into 82% fat European butter can be vacuum-sealed and frozen for months while keeping its aromatic profile completely intact.
+                    </p>
+                </div>
+            `,
+            rules: `
+                <div class="space-y-6">
+                    <div class="border-b border-stone-800 pb-4">
+                        <span class="text-xs uppercase tracking-widest text-gold-400 font-mono">Culinary Canon</span>
+                        <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1">The 3 Imperative Rules</h3>
+                    </div>
+                    <ul class="space-y-4 text-sm text-stone-300">
+                        <li class="flex items-start gap-3">
+                            <span class="text-gold-400 font-bold">1.</span>
+                            <div>
+                                <strong class="text-stone-100">Never High-Heat Cook:</strong>
+                                <span class="text-stone-400 block mt-0.5">Direct searing or boiling vaporizes the delicate aroma molecules instantly.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-gold-400 font-bold">2.</span>
+                            <div>
+                                <strong class="text-stone-100">Always Pair with Lipids:</strong>
+                                <span class="text-stone-400 block mt-0.5">Truffle volatiles bind selectively to fat molecules (butter, oil, egg yolks, cheese fat).</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-gold-400 font-bold">3.</span>
+                            <div>
+                                <strong class="text-stone-100">Clean with a Soft Brush:</strong>
+                                <span class="text-stone-400 block mt-0.5">Never soak truffles in water. Gently brush away soil under a light stream of cold water right before serving.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            `
+        };
+
+        function switchTab(tabKey) {
+            const tabs = ['trad', 'modern', 'rules'];
+            tabs.forEach(t => {
+                const btn = document.getElementById('tab-' + t);
+                if (t === tabKey) {
+                    btn.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-gold-500 text-truffle-950 shadow-md";
+                } else {
+                    btn.className = "px-6 py-2.5 rounded-full text-sm font-semibold text-stone-400 hover:text-stone-100 transition-all";
+                }
+            });
+
+            document.getElementById('tab-content').innerHTML = tabContentData[tabKey];
+        }
+
+        // Initialize default tab
+        document.addEventListener('DOMContentLoaded', () => {
+            switchTab('trad');
+        });
+    </script>
+</body>
+</html>
