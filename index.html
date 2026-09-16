@@ -3,691 +3,993 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Black Truffle | Botanical & Culinary Explorer</title>
+    <title>Algebra 2 Study Helper & Interactive Toolkit</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        truffle: {
-                            950: '#0C0A09',
-                            900: '#171412',
-                            800: '#26201D',
-                            700: '#3D3430',
-                            600: '#5C4F49',
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            900: '#134e4a',
+                            950: '#042f2e',
                         },
-                        gold: {
-                            400: '#F3D370',
-                            500: '#D4AF37',
-                            600: '#AA8822',
+                        accent: {
+                            cyan: '#06b6d4',
+                            violet: '#8b5cf6',
+                            emerald: '#10b981',
+                            amber: '#f59e0b',
+                            rose: '#f43f5e'
                         }
                     },
                     fontFamily: {
-                        serif: ['Playfair Display', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
                     }
                 }
             }
         }
     </script>
-    
     <style>
         body {
-            background-color: #0C0A09;
-            color: #E6DDD5;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #f1f5f9;
         }
-        
-        /* Subtle background organic pattern */
-        .bg-truffle-pattern {
-            background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 60%),
-                              radial-gradient(circle at 80% 20%, rgba(61, 52, 48, 0.3) 0%, transparent 40%);
-        }
-
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FFF0CA 0%, #D4AF37 50%, #99771C 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .gold-border-glow {
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
-        }
-
         .glass-panel {
-            background: rgba(23, 20, 18, 0.7);
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card:hover {
+            border-color: rgba(45, 212, 191, 0.3);
+        }
+        .math-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #0C0A09;
+            background: #0b0f19;
         }
         ::-webkit-scrollbar-thumb {
-            background: #26201D;
+            background: #1e293b;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #D4AF37;
+            background: #334155;
         }
     </style>
 </head>
-<body class="min-h-screen bg-truffle-950 text-stone-200 antialiased selection:bg-gold-500 selection:text-truffle-950">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-brand-500 selection:text-white">
 
-    <!-- Navigation Bar -->
-    <header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-gold-500/10">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center group-hover:border-gold-500 transition-colors">
-                    <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                    </svg>
+    <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-accent-cyan flex items-center justify-center shadow-lg shadow-brand-500/20">
+                    <i class="fa-solid fa-square-root-variable text-white text-lg"></i>
                 </div>
-                <span class="font-serif text-xl font-bold tracking-wide text-stone-100 group-hover:text-gold-400 transition-colors">TUBER MELANOSPORUM</span>
-            </a>
+                <div>
+                    <span class="text-lg font-bold tracking-tight text-white flex items-center gap-1.5">
+                        algebra 2 <span class="text-xs px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/20 font-mono">toolkit</span>
+                    </span>
+                </div>
+            </div>
 
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-300">
-                <a href="#quick-facts" class="hover:text-gold-400 transition-colors">Botanical Facts</a>
-                <a href="#sensory-profile" class="hover:text-gold-400 transition-colors">Sensory Wheel</a>
-                <a href="#culinary-guide" class="hover:text-gold-400 transition-colors">Culinary Guide</a>
-                <a href="#science" class="hover:text-gold-400 transition-colors">Ecology</a>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#quadratic" class="hover:text-brand-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line text-xs text-brand-400"></i> Quadratic Solver
+                </a>
+                <a href="#logs-exp" class="hover:text-brand-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-calculator text-xs text-accent-cyan"></i> Logs & Exponents
+                </a>
+                <a href="#cheat-sheet" class="hover:text-brand-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-book-open text-xs text-accent-violet"></i> Formula Sheet
+                </a>
+                <a href="#practice" class="hover:text-brand-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-brain text-xs text-accent-emerald"></i> Practice Lab
+                </a>
             </nav>
 
-            <a href="#quick-facts" class="px-5 py-2 rounded-full bg-gold-500 text-truffle-950 font-semibold text-sm hover:bg-gold-400 transition-all shadow-lg hover:shadow-gold-500/20">
-                Explore Species
-            </a>
+            <!-- Quick Action Button -->
+            <div class="hidden sm:flex items-center space-x-3">
+                <a href="#practice" class="px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-500 text-white font-medium text-sm transition-all duration-200 shadow-md shadow-brand-600/30">
+                    Start Practice
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-slate-900/95 px-4 pt-2 pb-4 space-y-2">
+            <a href="#quadratic" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-brand-400">Quadratic Solver</a>
+            <a href="#logs-exp" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-brand-400">Logs & Exponents</a>
+            <a href="#cheat-sheet" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-brand-400">Formula Cheat Sheet</a>
+            <a href="#practice" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-brand-400">Practice Lab</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-24 md:pt-48 md:pb-36 bg-truffle-pattern overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="max-w-3xl">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-widest mb-6">
-                    <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
-                    Botanical Monograph & Culinary Guide
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+        
+        <!-- Hero Banner -->
+        <section class="relative overflow-hidden rounded-3xl p-8 sm:p-12 glass-panel border border-slate-800/80">
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-accent-violet/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 max-w-3xl space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-xs text-brand-400 font-mono">
+                    <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                    Interactive High School & College Algebra 2 Companion
                 </div>
-                
-                <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">
-                    The Black Truffle: <br/>
-                    <span class="gold-gradient-text">Culinary Black Gold</span>
+                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                    Master <span class="bg-gradient-to-r from-brand-400 via-accent-cyan to-accent-violet bg-clip-text text-transparent">Algebra 2</span> Concepts with Interactive Tools
                 </h1>
-                
-                <p class="text-lg md:text-xl text-stone-300 leading-relaxed mb-10 font-light">
-                    Deep beneath the calcareous soils of Southern Europe thrives <em class="italic text-gold-400">Tuber melanosporum</em>—an extraordinary subterranean fungus forged through ancient symbiosis with oak and hazel roots.
+                <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+                    Instantly solve quadratic equations with complex roots, calculate logarithmic growth, study interactive formula breakdowns, and generate unlimited practice problems with step-by-step solutions.
                 </p>
-
-                <div class="flex flex-wrap items-center gap-4">
-                    <a href="#quick-facts" class="px-7 py-3.5 rounded-full bg-gold-500 text-truffle-950 font-bold hover:bg-gold-400 transition-all shadow-xl flex items-center gap-2">
-                        <span>Discover Quick Facts</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#quadratic" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold shadow-lg shadow-brand-600/30 transition-all flex items-center gap-2">
+                        Try Quadratic Solver <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
-                    <a href="#sensory-profile" class="px-7 py-3.5 rounded-full bg-truffle-900 border border-gold-500/30 text-stone-200 hover:border-gold-500 hover:text-gold-400 transition-all">
-                        Examine Flavor Profile
+                    <a href="#cheat-sheet" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-book-open text-xs text-brand-400"></i> Explore Formulas
                     </a>
                 </div>
             </div>
 
-            <!-- Hero Stats Cards -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20">
-                <div class="glass-panel p-6 rounded-2xl border-stone-800">
-                    <div class="text-3xl font-serif font-bold text-gold-400 mb-1">$1,200+</div>
-                    <div class="text-xs text-stone-400 uppercase tracking-wider">Average Price / Kg</div>
-                </div>
-                <div class="glass-panel p-6 rounded-2xl border-stone-800">
-                    <div class="text-3xl font-serif font-bold text-gold-400 mb-1">pH 7.5 - 8.5</div>
-                    <div class="text-xs text-stone-400 uppercase tracking-wider">Optimal Alkaline Soil</div>
-                </div>
-                <div class="glass-panel p-6 rounded-2xl border-stone-800">
-                    <div class="text-3xl font-serif font-bold text-gold-400 mb-1">4 - 12 months</div>
-                    <div class="text-xs text-stone-400 uppercase tracking-wider">Maturation Cycle</div>
-                </div>
-                <div class="glass-panel p-6 rounded-2xl border-stone-800">
-                    <div class="text-3xl font-serif font-bold text-gold-400 mb-1">50+</div>
-                    <div class="text-xs text-stone-400 uppercase tracking-wider">Volatile Compounds</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quick Facts Section -->
-    <section id="quick-facts" class="py-24 bg-truffle-900/50 border-y border-gold-500/10 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="font-serif text-3xl md:text-4xl font-bold text-stone-100 mb-4">Core Botanical Knowledge</h2>
-                <p class="text-stone-400">Click any card below to uncover essential botanical, ecological, and economic facts about <em class="italic text-gold-400">Tuber melanosporum</em>.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="facts-grid">
-                <!-- Fact 1 -->
-                <div class="fact-card glass-panel p-8 rounded-2xl cursor-pointer hover:border-gold-500/50 transition-all duration-300 group relative" onclick="toggleFactModal(0)">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                    </div>
-                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Taxonomy</span>
-                    <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1 mb-3 group-hover:text-gold-400 transition-colors">Species Classification</h3>
-                    <p class="text-stone-400 text-sm line-clamp-3">Known primarily as the Périgord Black Truffle, it belongs to the Ascomycota division and forms subterranean fruiting bodies...</p>
-                    <div class="mt-6 flex items-center text-xs font-semibold text-gold-400 gap-1">
-                        <span>Read Detail</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </div>
-                </div>
-
-                <!-- Fact 2 -->
-                <div class="fact-card glass-panel p-8 rounded-2xl cursor-pointer hover:border-gold-500/50 transition-all duration-300 group relative" onclick="toggleFactModal(1)">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-                    </div>
-                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Symbiosis</span>
-                    <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1 mb-3 group-hover:text-gold-400 transition-colors">Mycorrhizal Trees</h3>
-                    <p class="text-stone-400 text-sm line-clamp-3">Truffles cannot perform photosynthesis. They depend on a mutually beneficial partnership with host tree roots like Holm Oak and Hazel...</p>
-                    <div class="mt-6 flex items-center text-xs font-semibold text-gold-400 gap-1">
-                        <span>Read Detail</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </div>
-                </div>
-
-                <!-- Fact 3 -->
-                <div class="fact-card glass-panel p-8 rounded-2xl cursor-pointer hover:border-gold-500/50 transition-all duration-300 group relative" onclick="toggleFactModal(2)">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                    </div>
-                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Harvesting</span>
-                    <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1 mb-3 group-hover:text-gold-400 transition-colors">Canine Detection</h3>
-                    <p class="text-stone-400 text-sm line-clamp-3">While female pigs were historically used due to androstenol attraction, trained dogs (like the Lagotto Romagnolo) are now standard...</p>
-                    <div class="mt-6 flex items-center text-xs font-semibold text-gold-400 gap-1">
-                        <span>Read Detail</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </div>
-                </div>
-
-                <!-- Fact 4 -->
-                <div class="fact-card glass-panel p-8 rounded-2xl cursor-pointer hover:border-gold-500/50 transition-all duration-300 group relative" onclick="toggleFactModal(3)">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Economy</span>
-                    <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1 mb-3 group-hover:text-gold-400 transition-colors">High Market Value</h3>
-                    <p class="text-stone-400 text-sm line-clamp-3">Extreme rarity, complex cultivation requirements, and short shelf-life make black truffles one of the most expensive crops on Earth...</p>
-                    <div class="mt-6 flex items-center text-xs font-semibold text-gold-400 gap-1">
-                        <span>Read Detail</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </div>
-                </div>
-
-                <!-- Fact 5 -->
-                <div class="fact-card glass-panel p-8 rounded-2xl cursor-pointer hover:border-gold-500/50 transition-all duration-300 group relative" onclick="toggleFactModal(4)">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 002.5-2.5V11.4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Ecology</span>
-                    <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1 mb-3 group-hover:text-gold-400 transition-colors">The "Brûlé" Phenomenon</h3>
-                    <p class="text-stone-400 text-sm line-clamp-3">Around active truffle trees, a distinctive barren circle forms on the soil where grass ceases to grow due to fungal biochemical secretion...</p>
-                    <div class="mt-6 flex items-center text-xs font-semibold text-gold-400 gap-1">
-                        <span>Read Detail</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </div>
-                </div>
-
-                <!-- Fact 6 -->
-                <div class="fact-card glass-panel p-8 rounded-2xl cursor-pointer hover:border-gold-500/50 transition-all duration-300 group relative" onclick="toggleFactModal(5)">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                    </div>
-                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Chemistry</span>
-                    <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1 mb-3 group-hover:text-gold-400 transition-colors">Volatile Aroma Science</h3>
-                    <p class="text-stone-400 text-sm line-clamp-3">Dimethyl sulfide and 2-methylbutanal give black truffles their signature complex smell of wet earth, cocoa, garlic, and musk...</p>
-                    <div class="mt-6 flex items-center text-xs font-semibold text-gold-400 gap-1">
-                        <span>Read Detail</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal for Quick Facts -->
-    <div id="fact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/80 backdrop-blur-md hidden transition-opacity duration-300">
-        <div class="glass-panel max-w-2xl w-full p-8 rounded-3xl border border-gold-500/30 relative transform transition-transform shadow-2xl">
-            <button onclick="closeFactModal()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-100 p-2">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <span id="modal-tag" class="text-xs font-semibold uppercase tracking-widest text-gold-400">Category</span>
-            <h3 id="modal-title" class="font-serif text-3xl font-bold text-stone-100 mt-2 mb-4">Fact Title</h3>
-            <div id="modal-body" class="text-stone-300 leading-relaxed text-sm space-y-3">
-                <!-- Injected via JS -->
-            </div>
-            <div class="mt-8 pt-4 border-t border-stone-800 flex justify-end">
-                <button onclick="closeFactModal()" class="px-6 py-2.5 rounded-full bg-gold-500 text-truffle-950 font-semibold text-sm hover:bg-gold-400 transition-colors">
-                    Close Window
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Sensory Profile Interactive Wheel / Card Selector -->
-    <section id="sensory-profile" class="py-24 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <div class="lg:col-span-5">
-                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Organoleptic Spectrum</span>
-                    <h2 class="font-serif text-4xl font-bold text-stone-100 mt-2 mb-6">The Sensory Profile</h2>
-                    <p class="text-stone-400 leading-relaxed mb-8">
-                        The aroma of <em class="italic text-gold-400">Tuber melanosporum</em> is a delicate symphony of volatile organic compounds. Unlike white truffles, black truffles possess a warm, woody, and intensely rich umami fragrance.
-                    </p>
-
-                    <!-- Interactive Compound Selector Buttons -->
-                    <div class="space-y-3" id="sensory-buttons">
-                        <button onclick="selectSensory(0)" class="sensory-btn w-full text-left p-4 rounded-xl border border-gold-500/30 bg-gold-500/10 flex items-center justify-between group transition-all">
-                            <div>
-                                <h4 class="font-semibold text-gold-400 text-base">Forest Floor & Damp Earth</h4>
-                                <p class="text-xs text-stone-400">Primary volatile compound: 1-octen-3-ol</p>
-                            </div>
-                            <span class="text-gold-400 font-bold">&rarr;</span>
-                        </button>
-
-                        <button onclick="selectSensory(1)" class="sensory-btn w-full text-left p-4 rounded-xl border border-stone-800 bg-truffle-900/40 hover:border-gold-500/30 flex items-center justify-between group transition-all">
-                            <div>
-                                <h4 class="font-semibold text-stone-200 text-base">Musky Garlic & Sulfur</h4>
-                                <p class="text-xs text-stone-400">Primary volatile compound: Dimethyl sulfide</p>
-                            </div>
-                            <span class="text-stone-500 group-hover:text-gold-400 font-bold">&rarr;</span>
-                        </button>
-
-                        <button onclick="selectSensory(2)" class="sensory-btn w-full text-left p-4 rounded-xl border border-stone-800 bg-truffle-900/40 hover:border-gold-500/30 flex items-center justify-between group transition-all">
-                            <div>
-                                <h4 class="font-semibold text-stone-200 text-base">Toasted Hazelnut & Butter</h4>
-                                <p class="text-xs text-stone-400">Primary volatile compound: 2-methylbutanal</p>
-                            </div>
-                            <span class="text-stone-500 group-hover:text-gold-400 font-bold">&rarr;</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Interactive Visual Display -->
-                <div class="lg:col-span-7">
-                    <div class="glass-panel p-8 md:p-10 rounded-3xl border border-gold-500/20 relative">
-                        <!-- Dynamic Content Box -->
-                        <div id="sensory-display">
-                            <div class="flex items-center justify-between border-b border-stone-800 pb-6 mb-6">
-                                <div>
-                                    <span class="text-xs font-mono text-gold-400 uppercase tracking-widest">Aroma Component 01</span>
-                                    <h3 class="font-serif text-3xl font-bold text-stone-100 mt-1" id="sensory-title">Forest Floor & Damp Earth</h3>
-                                </div>
-                                <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-serif font-bold text-xl" id="sensory-score">
-                                    95%
-                                </div>
-                            </div>
-
-                            <p class="text-stone-300 leading-relaxed mb-6" id="sensory-desc">
-                                Gives black truffles their signature foundational scent—evoking rain-soaked oak leaves, dark humus soil, and ancient woodland flora. This note blooms as soon as the truffle is shaved warm.
-                            </p>
-
-                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-stone-800/60">
-                                <div>
-                                    <span class="text-xs text-stone-500 uppercase tracking-wider block mb-1">Culinary Synergies</span>
-                                    <p class="text-sm font-medium text-gold-400" id="sensory-pairing">Pastured Eggs, Cultured Butter, Aged Parmigiano</p>
-                                </div>
-                                <div>
-                                    <span class="text-xs text-stone-500 uppercase tracking-wider block mb-1">Volatile Stability</span>
-                                    <p class="text-sm font-medium text-stone-200" id="sensory-heat">Heat-sensitive (Best served &lt; 60°C)</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Culinary Guide Section -->
-    <section id="culinary-guide" class="py-24 bg-truffle-900/40 border-t border-gold-500/10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Gastronomic Excellence</span>
-                <h2 class="font-serif text-4xl font-bold text-stone-100 mt-2 mb-4">Culinary Preparation Guide</h2>
-                <p class="text-stone-400">Black truffles contain fat-soluble aromatic molecules that degrade under direct high heat. Master the art of preservation and infusion.</p>
-            </div>
-
-            <!-- Tabs -->
-            <div class="flex justify-center mb-12">
-                <div class="inline-flex p-1 rounded-full glass-panel border border-stone-800">
-                    <button onclick="switchTab('trad')" id="tab-trad" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-gold-500 text-truffle-950 shadow-md">
-                        Traditional Methods
-                    </button>
-                    <button onclick="switchTab('modern')" id="tab-modern" class="px-6 py-2.5 rounded-full text-sm font-semibold text-stone-400 hover:text-stone-100 transition-all">
-                        Modern Innovations
-                    </button>
-                    <button onclick="switchTab('rules')" id="tab-rules" class="px-6 py-2.5 rounded-full text-sm font-semibold text-stone-400 hover:text-stone-100 transition-all">
-                        Golden Rules
-                    </button>
-                </div>
-            </div>
-
-            <!-- Tab Content -->
-            <div id="tab-content" class="max-w-4xl mx-auto glass-panel p-8 md:p-12 rounded-3xl border border-stone-800">
-                <!-- Content injected via JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Ecology & Science Section -->
-    <section id="science" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-slate-800/80">
                 <div>
-                    <span class="text-xs uppercase tracking-widest text-gold-500 font-semibold">Subterranean Ecosystems</span>
-                    <h2 class="font-serif text-4xl font-bold text-stone-100 mt-2 mb-6">The Mycorrhizal Network</h2>
-                    <p class="text-stone-300 leading-relaxed mb-4">
-                        Truffles cannot survive in isolation. They forge an intricate subterranean relationship called a <strong>mycorrhiza</strong> with host trees—exchanging minerals and moisture absorbed by fungal hyphae for carbohydrates synthesized by the tree.
-                    </p>
-                    <p class="text-stone-400 text-sm leading-relaxed mb-6">
-                        Cultivating black truffles requires inoculating tree saplings with fungal spores and waiting anywhere from 5 to 10 years before the first harvest can take place.
-                    </p>
+                    <div class="text-2xl font-bold text-white math-font">100%</div>
+                    <div class="text-xs text-slate-400 mt-1">Step-by-Step Solutions</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-brand-400 math-font">a, b, c</div>
+                    <div class="text-xs text-slate-400 mt-1">Real & Complex Roots</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-accent-cyan math-font">A = Pe<sup>rt</sup></div>
+                    <div class="text-xs text-slate-400 mt-1">Log & Exponential Models</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-accent-violet math-font">6+ Topics</div>
+                    <div class="text-xs text-slate-400 mt-1">Comprehensive Cheat Sheet</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quadratic" class="space-y-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center text-sm">1</span>
+                        Interactive Quadratic Solver
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-1">Solves $ax^2 + bx + c = 0$. Provides discriminant, vertex, real & complex imaginary roots, and dynamic graphing.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Controls & Input -->
+                <div class="lg:col-span-5 glass-panel rounded-2xl p-6 space-y-6 border border-slate-800">
+                    <div class="text-xs font-semibold text-brand-400 uppercase tracking-wider math-font">Input Coefficients</div>
                     
-                    <div class="flex items-center gap-4">
-                        <div class="p-3 rounded-xl bg-gold-500/10 border border-gold-500/20 text-gold-400">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <form id="quad-form" class="space-y-4" onsubmit="event.preventDefault(); solveQuadratic();">
+                        <div class="grid grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-400 mb-1">Coefficient a</label>
+                                <input type="number" step="any" id="quad-a" value="1" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white math-font focus:outline-none focus:border-brand-500 transition-colors" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-400 mb-1">Coefficient b</label>
+                                <input type="number" step="any" id="quad-b" value="-4" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white math-font focus:outline-none focus:border-brand-500 transition-colors" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-400 mb-1">Constant c</label>
+                                <input type="number" step="any" id="quad-c" value="13" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white math-font focus:outline-none focus:border-brand-500 transition-colors" required>
+                            </div>
                         </div>
+
+                        <!-- Presets -->
                         <div>
-                            <h4 class="text-stone-200 font-semibold text-sm">Oak & Hazel Orchards (Truffières)</h4>
-                            <p class="text-stone-400 text-xs">Carefully balanced soil pH and irrigation sustain high-yield harvests.</p>
+                            <label class="block text-xs font-medium text-slate-400 mb-2">Load Example Presets:</label>
+                            <div class="flex flex-wrap gap-2">
+                                <button type="button" onclick="setQuadPreset(1, -5, 6)" class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs text-slate-300 hover:bg-slate-700 border border-slate-700 transition">2 Real Roots</button>
+                                <button type="button" onclick="setQuadPreset(1, -4, 4)" class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs text-slate-300 hover:bg-slate-700 border border-slate-700 transition">1 Real Root</button>
+                                <button type="button" onclick="setQuadPreset(1, -4, 13)" class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs text-slate-300 hover:bg-slate-700 border border-slate-700 transition">Complex Roots</button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all shadow-md shadow-brand-600/30 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-calculator text-sm"></i> Compute Solutions
+                        </button>
+                    </form>
+
+                    <!-- Calculated Output Highlights -->
+                    <div class="border-t border-slate-800 pt-5 space-y-3">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-slate-400">Equation:</span>
+                            <span id="quad-eq-display" class="math-font font-semibold text-brand-400">x² - 4x + 13 = 0</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-slate-400">Discriminant (&Delta; = b² - 4ac):</span>
+                            <span id="quad-disc-display" class="math-font font-semibold text-accent-rose">-36</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-slate-400">Root Type:</span>
+                            <span id="quad-type-display" class="px-2 py-0.5 text-xs rounded-full bg-accent-violet/20 text-accent-violet border border-accent-violet/30 font-medium">Two Complex Imaginary</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-slate-400">Vertex (h, k):</span>
+                            <span id="quad-vertex-display" class="math-font font-semibold text-white">(2, 9)</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass-panel p-8 rounded-3xl border border-gold-500/20 bg-truffle-900/80">
-                    <h3 class="font-serif text-2xl font-bold text-stone-100 mb-4">Optimal Growth Parameters</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <span class="w-2 h-2 rounded-full bg-gold-400 mt-2"></span>
-                            <div>
-                                <strong class="text-stone-200 text-sm block">Soil Chemistry:</strong>
-                                <span class="text-stone-400 text-xs">Requires highly calcareous, well-draining limestone soils with a pH around 7.8 to 8.3.</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="w-2 h-2 rounded-full bg-gold-400 mt-2"></span>
-                            <div>
-                                <strong class="text-stone-200 text-sm block">Climatic Seasons:</strong>
-                                <span class="text-stone-400 text-xs">Warm summers foster fungal growth; gentle winter frosts trigger ascocarp maturation.</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="w-2 h-2 rounded-full bg-gold-400 mt-2"></span>
-                            <div>
-                                <strong class="text-stone-200 text-sm block">Harvest Period:</strong>
-                                <span class="text-stone-400 text-xs">November through March in the Northern Hemisphere (Périgord, Provence, Spain, Italy).</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="bg-truffle-950 border-t border-gold-500/10 py-16 text-stone-400 text-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-                <div class="md:col-span-2">
-                    <a href="#" class="flex items-center gap-3 mb-4">
-                        <div class="w-8 h-8 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center">
-                            <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <!-- Solution Steps & Plot Canvas -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Graph Viewport -->
+                    <div class="glass-panel rounded-2xl p-4 border border-slate-800 flex flex-col items-center justify-center">
+                        <div class="w-full flex justify-between items-center px-2 mb-2">
+                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Parabola Graph</span>
+                            <span class="text-xs text-slate-500">Auto-Scaled Viewport</span>
                         </div>
-                        <span class="font-serif text-lg font-bold text-stone-100 tracking-wide">TUBER MELANOSPORUM</span>
-                    </a>
-                    <p class="text-stone-500 max-w-sm text-xs leading-relaxed">
-                        An educational digital monograph devoted to preserving botanical knowledge and culinary science regarding European subterranean fungi.
-                    </p>
+                        <canvas id="quad-canvas" width="500" height="260" class="w-full max-w-full rounded-xl bg-slate-950 border border-slate-800"></canvas>
+                    </div>
+
+                    <!-- Step-by-Step Breakdown -->
+                    <div class="glass-panel rounded-2xl p-6 border border-slate-800 space-y-3">
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wider math-font flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-brand-400"></i> Step-by-Step Solution Breakdown
+                        </h3>
+                        <div id="quad-steps" class="space-y-2 text-sm text-slate-300 math-font bg-slate-950/60 p-4 rounded-xl border border-slate-800/80 leading-relaxed overflow-x-auto">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="logs-exp" class="space-y-6">
+            <div>
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-lg bg-accent-cyan/20 text-accent-cyan flex items-center justify-center text-sm">2</span>
+                    Logarithm & Exponential Calculator
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">Compute logarithmic bases $\log_b(x)$ and continuous exponential growth / decay ($A = P e^{rt}$).</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Log Calculator -->
+                <div class="glass-panel rounded-2xl p-6 border border-slate-800 space-y-5">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                        <h3 class="font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-square-root-variable text-accent-cyan"></i> Logarithm Calculator
+                        </h3>
+                        <span class="text-xs text-slate-400 math-font">log<sub>b</sub>(x) = y</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-1">Select Preset or Custom Base</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button type="button" onclick="setLogBase(10)" class="py-1.5 rounded-lg bg-slate-800 text-xs text-white hover:bg-slate-700 border border-slate-700">Base 10 (log)</button>
+                                <button type="button" onclick="setLogBase(Math.E)" class="py-1.5 rounded-lg bg-slate-800 text-xs text-white hover:bg-slate-700 border border-slate-700">Base e (ln)</button>
+                                <button type="button" onclick="setLogBase(2)" class="py-1.5 rounded-lg bg-slate-800 text-xs text-white hover:bg-slate-700 border border-slate-700">Base 2 (binary)</button>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-400 mb-1">Base (b)</label>
+                                <input type="number" step="any" id="log-base" value="10" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white math-font focus:outline-none focus:border-accent-cyan" oninput="calcLog()">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-400 mb-1">Argument (x)</label>
+                                <input type="number" step="any" id="log-x" value="1000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white math-font focus:outline-none focus:border-accent-cyan" oninput="calcLog()">
+                            </div>
+                        </div>
+
+                        <!-- Result Box -->
+                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                            <div class="text-xs text-slate-400">Result:</div>
+                            <div id="log-result" class="text-xl font-bold text-accent-cyan math-font">log<sub>10</sub>(1000) = 3</div>
+                            <div id="log-explanation" class="text-xs text-slate-400">Because 10<sup>3</sup> = 1000. Change-of-base: ln(1000) / ln(10).</div>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Exponential Growth / Decay Calculator -->
+                <div class="glass-panel rounded-2xl p-6 border border-slate-800 space-y-5">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                        <h3 class="font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-chart-line text-brand-400"></i> Continuous Growth & Decay
+                        </h3>
+                        <span class="text-xs text-slate-400 math-font">A = P &middot; e<sup>rt</sup></span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-400 mb-1">Principal (P)</label>
+                                <input type="number" step="any" id="exp-p" value="1000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white math-font focus:outline-none focus:border-brand-500" oninput="calcExp()">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-400 mb-1">Annual Rate (r %)</label>
+                                <input type="number" step="any" id="exp-r" value="5" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white math-font focus:outline-none focus:border-brand-500" oninput="calcExp()">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-400 mb-1">Time (t years)</label>
+                                <input type="number" step="any" id="exp-t" value="10" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white math-font focus:outline-none focus:border-brand-500" oninput="calcExp()">
+                            </div>
+                        </div>
+
+                        <!-- Result Box -->
+                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                            <div class="text-xs text-slate-400">Total Accumulated Amount (A):</div>
+                            <div id="exp-result" class="text-xl font-bold text-brand-400 math-font">$1,648.72</div>
+                            <div id="exp-explanation" class="text-xs text-slate-400">A = 1000 &middot; e<sup>(0.05 &middot; 10)</sup> = 1000 &middot; e<sup>0.5</sup></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cheat-sheet" class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h4 class="font-semibold text-stone-200 text-xs uppercase tracking-widest mb-4">Navigation</h4>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="#quick-facts" class="hover:text-gold-400 transition-colors">Botanical Facts</a></li>
-                        <li><a href="#sensory-profile" class="hover:text-gold-400 transition-colors">Sensory Profile</a></li>
-                        <li><a href="#culinary-guide" class="hover:text-gold-400 transition-colors">Culinary Guide</a></li>
-                        <li><a href="#science" class="hover:text-gold-400 transition-colors">Ecology</a></li>
-                    </ul>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-accent-violet/20 text-accent-violet flex items-center justify-center text-sm">3</span>
+                        Interactive Formula Cheat Sheet
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-1">Core Algebra 2 reference card catalog. Click cards to reveal step-by-step examples.</p>
                 </div>
 
-                <div>
-                    <h4 class="font-semibold text-stone-200 text-xs uppercase tracking-widest mb-4">Site Information</h4>
-                    <ul class="space-y-2 text-xs">
-                        <!-- About link directly pointing to /player/index.html -->
-                        <li><a href="/player/index.html" class="hover:text-gold-400 transition-colors text-gold-400/90 font-medium hover:underline">About</a></li>
-                        <li><a href="#" class="hover:text-gold-400 transition-colors">Research Archives</a></li>
-                        <li><a href="#" class="hover:text-gold-400 transition-colors">Legal & Citation</a></li>
-                    </ul>
+                <!-- Topic Filters -->
+                <div id="formula-filters" class="flex flex-wrap gap-2">
+                    <button onclick="filterFormulas('all')" class="filter-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-brand-600 text-white transition">All</button>
+                    <button onclick="filterFormulas('quadratics')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Quadratics</button>
+                    <button onclick="filterFormulas('logs')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Logarithms</button>
+                    <button onclick="filterFormulas('polynomials')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Polynomials</button>
+                    <button onclick="filterFormulas('matrices')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Matrices</button>
+                    <button onclick="filterFormulas('sequences')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Sequences</button>
+                    <button onclick="filterFormulas('complex')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Complex Numbers</button>
                 </div>
             </div>
 
-            <div class="pt-8 border-t border-stone-900 flex flex-col md:flex-row items-center justify-between text-xs text-stone-600 gap-4">
-                <p>&copy; 2026 Black Truffle Educational Initiative. All rights reserved.</p>
-                <div class="flex gap-6">
-                    <a href="/player/index.html" class="hover:text-stone-400 transition-colors">About App</a>
-                    <a href="#" class="hover:text-stone-400 transition-colors">Privacy Policy</a>
+            <div id="formula-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cheat cards rendered by JS -->
+            </div>
+        </section>
+
+        <section id="practice" class="space-y-6">
+            <div>
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-lg bg-accent-emerald/20 text-accent-emerald flex items-center justify-center text-sm">4</span>
+                    Practice Lab & Problem Generator
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">Test your mastery with randomized Algebra 2 problems, live scoring, and instant worked solutions.</p>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-slate-800 space-y-6">
+                <!-- Stats and Generator Options -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-center min-w-[90px]">
+                            <div class="text-xs text-slate-400">Score</div>
+                            <div id="practice-score" class="text-lg font-bold text-brand-400 math-font">0 / 0</div>
+                        </div>
+                        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-center min-w-[90px]">
+                            <div class="text-xs text-slate-400">Streak</div>
+                            <div id="practice-streak" class="text-lg font-bold text-accent-amber math-font">0 🔥</div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3 w-full sm:w-auto">
+                        <select id="practice-category" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500">
+                            <option value="quadratics">Topic: Quadratic Roots</option>
+                            <option value="logs">Topic: Log Expansion / Evaluation</option>
+                            <option value="complex">Topic: Complex Number Arithmetic</option>
+                            <option value="sequences">Topic: Sequences & Series</option>
+                        </select>
+                        <button onclick="generateProblem()" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium text-xs transition shadow-md flex items-center gap-2">
+                            <i class="fa-solid fa-arrows-rotate"></i> New Question
+                        </button>
+                    </div>
                 </div>
+
+                <!-- Problem Display Card -->
+                <div class="space-y-6">
+                    <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-accent-emerald math-font" id="problem-topic-tag">Topic: Quadratic Roots</span>
+                        <h3 id="problem-text" class="text-lg font-semibold text-white math-font leading-relaxed">
+                            Loading problem...
+                        </h3>
+                    </div>
+
+                    <!-- Multiple Choice Options -->
+                    <div id="problem-options" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Options generated by JS -->
+                    </div>
+
+                    <!-- Feedback Banner -->
+                    <div id="problem-feedback" class="hidden p-4 rounded-xl border space-y-2">
+                        <!-- Populated dynamically -->
+                    </div>
+
+                    <!-- Step-by-Step Explanation Accordion -->
+                    <div id="solution-container" class="hidden glass-card rounded-xl p-5 border border-slate-800 space-y-3">
+                        <div class="flex items-center justify-between text-sm font-bold text-white math-font">
+                            <span><i class="fa-solid fa-lightbulb text-accent-amber mr-2"></i> Step-by-Step Explanation:</span>
+                        </div>
+                        <div id="solution-steps" class="text-sm text-slate-300 math-font space-y-2 leading-relaxed bg-slate-950/80 p-4 rounded-lg border border-slate-800">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-800/80 glass-panel mt-16 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Branding -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-square-root-variable text-sm"></i>
+                    </div>
+                    <span class="text-base font-bold text-white">algebra 2 toolkit</span>
+                </div>
+
+                <!-- Nav links -->
+                <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
+                    <a href="#quadratic" class="hover:text-slate-200 transition">Quadratic Solver</a>
+                    <a href="#logs-exp" class="hover:text-slate-200 transition">Log & Exponent Calculator</a>
+                    <a href="#cheat-sheet" class="hover:text-slate-200 transition">Formula Reference</a>
+                    <a href="#practice" class="hover:text-slate-200 transition">Practice Lab</a>
+                </div>
+
+                <!-- Subtle About link pointing directly to player/index.html -->
+                <div class="text-xs text-slate-500 hover:text-slate-400 transition">
+                    <a href="/player/index.html" class="hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-circle-info text-[10px]"></i> About Toolkit & Media Player
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800/60 pt-6 text-center text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>&copy; Algebra 2 Companion. Built for high school & college mathematics learning.</p>
+                <p class="font-mono text-[11px] text-slate-600">v2.4.0 &bull; Interactive Web Application</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Data for Quick Facts Modal
-        const factDetails = [
+        // --- 1. MOBILE MENU TOGGLE ---
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- 2. QUADRATIC SOLVER ENGINE ---
+        function setQuadPreset(a, b, c) {
+            document.getElementById('quad-a').value = a;
+            document.getElementById('quad-b').value = b;
+            document.getElementById('quad-c').value = c;
+            solveQuadratic();
+        }
+
+        function solveQuadratic() {
+            const a = parseFloat(document.getElementById('quad-a').value) || 0;
+            const b = parseFloat(document.getElementById('quad-b').value) || 0;
+            const c = parseFloat(document.getElementById('quad-c').value) || 0;
+
+            const eqDisp = document.getElementById('quad-eq-display');
+            const discDisp = document.getElementById('quad-disc-display');
+            const typeDisp = document.getElementById('quad-type-display');
+            const vertexDisp = document.getElementById('quad-vertex-display');
+            const stepsDiv = document.getElementById('quad-steps');
+
+            if (a === 0) {
+                eqDisp.innerText = "Invalid Quadratic (a cannot be 0)";
+                discDisp.innerText = "N/A";
+                typeDisp.innerText = "Linear Equation";
+                vertexDisp.innerText = "N/A";
+                stepsDiv.innerHTML = "<div>Coefficient 'a' must be non-zero for a quadratic function.</div>";
+                return;
+            }
+
+            // Format Equation
+            let bStr = b >= 0 ? `+ ${b}` : `- ${Math.abs(b)}`;
+            let cStr = c >= 0 ? `+ ${c}` : `- ${Math.abs(c)}`;
+            eqDisp.innerText = `${a === 1 ? '' : a === -1 ? '-' : a}x² ${bStr}x ${cStr} = 0`;
+
+            // Discriminant Delta = b^2 - 4ac
+            const disc = (b * b) - (4 * a * c);
+            discDisp.innerText = disc.toFixed(2).replace(/\.00$/, '');
+
+            // Vertex (h, k)
+            const h = -b / (2 * a);
+            const k = a * h * h + b * h + c;
+            vertexDisp.innerText = `(${h.toFixed(2).replace(/\.00$/, '')}, ${k.toFixed(2).replace(/\.00$/, '')})`;
+
+            let stepsHTML = '';
+            stepsHTML += `<div><strong>Standard Form:</strong> ${a}x² + (${b})x + (${c}) = 0</div>`;
+            stepsHTML += `<div><strong>1. Identify coefficients:</strong> a = ${a}, b = ${b}, c = ${c}</div>`;
+            stepsHTML += `<div><strong>2. Calculate Discriminant (&Delta; = b² - 4ac):</strong></div>`;
+            stepsHTML += `<div class="pl-4 text-slate-400">&Delta; = (${b})² - 4(${a})(${c}) = ${b*b} - ${4*a*c} = <strong>${disc}</strong></div>`;
+
+            let roots = [];
+
+            if (disc > 0) {
+                typeDisp.className = "px-2 py-0.5 text-xs rounded-full bg-accent-emerald/20 text-accent-emerald border border-accent-emerald/30 font-medium";
+                typeDisp.innerText = "Two Real Distinct Roots";
+
+                const r1 = (-b + Math.sqrt(disc)) / (2 * a);
+                const r2 = (-b - Math.sqrt(disc)) / (2 * a);
+                roots = [r1, r2];
+
+                stepsHTML += `<div><strong>3. Apply Quadratic Formula x = (-b &plusmn; &radic;&Delta;) / (2a):</strong></div>`;
+                stepsHTML += `<div class="pl-4 text-brand-400">x₁ = (-(${b}) + &radic;${disc}) / (2 &middot; ${a}) = <strong>${r1.toFixed(4).replace(/\.?0+$/, '')}</strong></div>`;
+                stepsHTML += `<div class="pl-4 text-brand-400">x₂ = (-(${b}) - &radic;${disc}) / (2 &middot; ${a}) = <strong>${r2.toFixed(4).replace(/\.?0+$/, '')}</strong></div>`;
+            } else if (disc === 0) {
+                typeDisp.className = "px-2 py-0.5 text-xs rounded-full bg-accent-cyan/20 text-accent-cyan border border-accent-cyan/30 font-medium";
+                typeDisp.innerText = "One Real Repeated Root";
+
+                const r = -b / (2 * a);
+                roots = [r];
+
+                stepsHTML += `<div><strong>3. &Delta; = 0, single repeated root:</strong></div>`;
+                stepsHTML += `<div class="pl-4 text-accent-cyan">x = -(${b}) / (2 &middot; ${a}) = <strong>${r.toFixed(4).replace(/\.?0+$/, '')}</strong></div>`;
+            } else {
+                typeDisp.className = "px-2 py-0.5 text-xs rounded-full bg-accent-violet/20 text-accent-violet border border-accent-violet/30 font-medium";
+                typeDisp.innerText = "Two Complex Imaginary Roots";
+
+                const realPart = (-b / (2 * a)).toFixed(3).replace(/\.?0+$/, '');
+                const imagPart = (Math.sqrt(Math.abs(disc)) / (2 * a)).toFixed(3).replace(/\.?0+$/, '');
+
+                stepsHTML += `<div><strong>3. &Delta; < 0, roots involve imaginary unit i (&radic;-1):</strong></div>`;
+                stepsHTML += `<div class="pl-4 text-accent-violet">x₁ = ${realPart} + ${Math.abs(imagPart)}i</div>`;
+                stepsHTML += `<div class="pl-4 text-accent-violet">x₂ = ${realPart} - ${Math.abs(imagPart)}i</div>`;
+            }
+
+            stepsDiv.innerHTML = stepsHTML;
+
+            // Plot Canvas
+            drawParabola(a, b, c, h, k, roots);
+        }
+
+        // --- CANVAS PARABOLA DRAWING ---
+        function drawParabola(a, b, c, h, k, roots) {
+            const canvas = document.getElementById('quad-canvas');
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+
+            ctx.clearRect(0, 0, width, height);
+
+            // Scale & Center calculation
+            const padding = 30;
+            const xRange = Math.max(10, Math.abs(h) * 2.5);
+            const yRange = Math.max(10, Math.abs(k) * 2.5);
+
+            const scaleX = (width - 2 * padding) / (xRange * 2);
+            const scaleY = (height - 2 * padding) / (yRange * 2);
+
+            const originX = width / 2 - h * scaleX;
+            const originY = height / 2 + k * scaleY;
+
+            // Draw Grid lines
+            ctx.strokeStyle = '#1e293b';
+            ctx.lineWidth = 1;
+
+            ctx.beginPath();
+            ctx.moveTo(0, originY); ctx.lineTo(width, originY); // X Axis
+            ctx.moveTo(originX, 0); ctx.lineTo(originX, height); // Y Axis
+            ctx.stroke();
+
+            // Axis labels
+            ctx.fillStyle = '#64748b';
+            ctx.font = '10px JetBrains Mono';
+            ctx.fillText('x', width - 15, originY - 5);
+            ctx.fillText('y', originX + 5, 12);
+
+            // Draw Parabola Curve
+            ctx.beginPath();
+            ctx.strokeStyle = '#2dd4bf'; // Brand neon teal
+            ctx.lineWidth = 2.5;
+
+            let first = true;
+            for (let px = 0; px <= width; px += 2) {
+                const xVal = (px - originX) / scaleX;
+                const yVal = a * xVal * xVal + b * xVal + c;
+                const py = originY - yVal * scaleY;
+
+                if (py >= -50 && py <= height + 50) {
+                    if (first) {
+                        ctx.moveTo(px, py);
+                        first = false;
+                    } else {
+                        ctx.lineTo(px, py);
+                    }
+                }
+            }
+            ctx.stroke();
+
+            // Draw Vertex Dot
+            const vx = originX + h * scaleX;
+            const vy = originY - k * scaleY;
+            if (vx >= 0 && vx <= width && vy >= 0 && vy <= height) {
+                ctx.fillStyle = '#8b5cf6'; // Violet
+                ctx.beginPath();
+                ctx.arc(vx, vy, 5, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+
+            // Draw Real Roots Dots
+            if (roots && roots.length > 0) {
+                ctx.fillStyle = '#10b981'; // Emerald
+                roots.forEach(r => {
+                    const rx = originX + r * scaleX;
+                    const ry = originY;
+                    if (rx >= 0 && rx <= width) {
+                        ctx.beginPath();
+                        ctx.arc(rx, ry, 5, 0, 2 * Math.PI);
+                        ctx.fill();
+                    }
+                });
+            }
+        }
+
+        // --- 3. LOGARITHM & EXPONENT CALCULATOR ---
+        function setLogBase(val) {
+            document.getElementById('log-base').value = val;
+            calcLog();
+        }
+
+        function calcLog() {
+            const b = parseFloat(document.getElementById('log-base').value) || 0;
+            const x = parseFloat(document.getElementById('log-x').value) || 0;
+            const resDiv = document.getElementById('log-result');
+            const expDiv = document.getElementById('log-explanation');
+
+            if (b <= 0 || b === 1 || x <= 0) {
+                resDiv.innerText = "Undefined";
+                expDiv.innerText = "Logarithm base b must be > 0 and ≠ 1. Argument x must be > 0.";
+                return;
+            }
+
+            const result = Math.log(x) / Math.log(b);
+            const bLabel = b === Math.E ? 'e' : b;
+            resDiv.innerHTML = `log<sub>${bLabel}</sub>(${x}) = <strong>${result.toFixed(4).replace(/\.?0+$/, '')}</strong>`;
+            expDiv.innerHTML = `Since (${bLabel})<sup>${result.toFixed(3)}</sup> &approx; ${x}. Evaluated via Change-of-Base formula.`;
+        }
+
+        function calcExp() {
+            const P = parseFloat(document.getElementById('exp-p').value) || 0;
+            const r = parseFloat(document.getElementById('exp-r').value) || 0;
+            const t = parseFloat(document.getElementById('exp-t').value) || 0;
+
+            const resDiv = document.getElementById('exp-result');
+            const expDiv = document.getElementById('exp-explanation');
+
+            const rateDecimal = r / 100;
+            const A = P * Math.exp(rateDecimal * t);
+
+            resDiv.innerText = `$${A.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            expDiv.innerHTML = `A = ${P} &middot; e<sup>(${rateDecimal} &middot; ${t})</sup> = ${P} &middot; e<sup>${(rateDecimal * t).toFixed(3)}</sup>`;
+        }
+
+        // --- 4. FORMULA CHEAT SHEET CATALOG ---
+        const formulas = [
             {
-                tag: "Taxonomy & Identification",
-                title: "Tuber melanosporum (Périgord Truffle)",
-                body: `
-                    <p>The Périgord black truffle is a subterranean ascocarp characterized by a dark brown or charcoal rounded exterior with small, pyramidal warts.</p>
-                    <p>When sliced open, its interior gleams with dark brown or black marbling traversed by delicate white veinlets that turn reddish-brown as the spore matures.</p>
-                    <p>Unlike fake synthetic truffle oil made with 2-methylbutanal, genuine <em>Tuber melanosporum</em> offers a subtle, multifaceted flavor that cannot be accurately replicated artificially.</p>
-                `
+                category: 'quadratics',
+                title: 'Quadratic Formula & Discriminant',
+                formula: 'x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}',
+                description: 'Used to solve quadratic equations in standard form ax² + bx + c = 0.',
+                example: 'x² - 5x + 6 = 0 &rarr; a=1, b=-5, c=6. &Delta; = 25 - 24 = 1. x = (5 &plusmn; 1) / 2 &rarr; x = 3 or x = 2.'
             },
             {
-                tag: "Symbiosis & Hosts",
-                title: "Mycorrhizal Trees & Soil Biota",
-                body: `
-                    <p>Truffles form obligate ectomycorrhizal associations primarily with Oak (<em>Quercus robur</em>, <em>Quercus ilex</em>) and Hazelnut (<em>Corylus avellana</em>) trees.</p>
-                    <p>The fungus wraps its mycelial network around the tree root tips, increasing the root surface area for water and nutrient uptake while absorbing carbohydrate photo-assimilates from the tree host.</p>
-                `
+                category: 'quadratics',
+                title: 'Vertex Form of a Parabola',
+                formula: 'y = a(x - h)^2 + k',
+                description: '(h, k) represents the vertex coordinates. Line of symmetry is x = h.',
+                example: 'y = 2(x - 3)² + 4 &rarr; Vertex is at (3, 4), parabola opens upwards with vertical stretch of 2.'
             },
             {
-                tag: "Harvesting & Foraging",
-                title: "Traditional Dog Foraging",
-                body: `
-                    <p>Historical truffle hunters relied on female pigs, which naturally react to truffle scent because it contains androstenol, a pheromone present in boar saliva.</p>
-                    <p>However, because pigs often damage the subterranean root mycelium and eat the truffles, modern trufficulteurs exclusively train specially bred dogs (like the Lagotto Romagnolo) to locate ripe ascocarps without digging aggressively.</p>
-                `
+                category: 'logs',
+                title: 'Logarithm Product & Quotient Rules',
+                formula: '\\log_b(xy) = \\log_b(x) + \\log_b(y)',
+                description: 'Product converts to sum; Quotient \\log_b(x/y) = \\log_b(x) - \\log_b(y).',
+                example: '\\log_2(8 &middot; 4) = \\log_2(8) + \\log_2(4) = 3 + 2 = 5.'
             },
             {
-                tag: "Economic Impact",
-                title: "Culinary Rarity & Value Dynamics",
-                body: `
-                    <p>Black truffles command anywhere from $1,000 to over $2,000 per kilogram depending on seasonal supply, size, and grade quality.</p>
-                    <p>Global warming, erratic winter precipitation, and deforestation have led to lower natural yields across traditional Mediterranean regions, elevating truffle orchards (truffières) into lucrative agricultural investments.</p>
-                `
+                category: 'logs',
+                title: 'Change of Base Formula',
+                formula: '\\log_b(x) = \\frac{\\ln(x)}{\\ln(b)} = \\frac{\\log_{10}(x)}{\\log_{10}(b)}',
+                description: 'Allows evaluation of logarithms with arbitrary base b using standard calculator functions.',
+                example: '\\log_3(81) = \\ln(81) / \\ln(3) = 4.3944 / 1.0986 = 4.'
             },
             {
-                tag: "Ecology & Phenology",
-                title: "The 'Brûlé' Burn Circle",
-                body: `
-                    <p>Around the base of a truffle-bearing host tree, a distinct circular barren zone called the 'brûlé' (burnt area) often develops.</p>
-                    <p>The truffle mycelium releases herbicidal volatile organic compounds and competes aggressively for root space, suppressing grass and surrounding vegetation to optimize soil temperature and sunlight for subterranean spore development.</p>
-                `
+                category: 'polynomials',
+                title: 'Difference & Sum of Cubes',
+                formula: 'a^3 \\pm b^3 = (a \\pm b)(a^2 \\mp ab + b^2)',
+                description: 'Factoring identities for cubic binomials.',
+                example: 'x³ - 27 = (x - 3)(x² + 3x + 9).'
             },
             {
-                tag: "Biochemistry",
-                title: "Volatile Aroma Chemistry",
-                body: `
-                    <p>Over 50 volatile compounds have been identified in fresh black truffles.</p>
-                    <p>The dominant contributors include dimethyl sulfide (cabbage/sulfur note), 2-methylbutanal (toasted nut/cocoa), and 1-octen-3-ol (mushroom/forest earth).</p>
-                    <p>These aromatic volatiles evaporate rapidly at room temperature and degrade under high heat, which is why truffles are shaved fresh over warm food rather than cooked into hot sauces.</p>
-                `
+                category: 'matrices',
+                title: 'Determinant of 2x2 Matrix',
+                formula: '\\det(A) = ad - bc',
+                description: 'For matrix A = [[a, b], [c, d]]. Matrix is invertible iff det(A) &ne; 0.',
+                example: 'A = [[4, 2], [1, 3]] &rarr; det(A) = (4)(3) - (2)(1) = 12 - 2 = 10.'
+            },
+            {
+                category: 'sequences',
+                title: 'Arithmetic & Geometric Sequences',
+                formula: 'a_n = a_1 + (n-1)d \\quad | \\quad g_n = a_1 \\cdot r^{n-1}',
+                description: 'nth term for constant addition (d) or constant multiplication (r).',
+                example: 'Arithmetic: 3, 7, 11... &rarr; a₅ = 3 + (4)(4) = 19.'
+            },
+            {
+                category: 'complex',
+                title: 'Complex Number Operations & i Powers',
+                formula: 'i = \\sqrt{-1}, \\quad i^2 = -1, \\quad i^3 = -i, \\quad i^4 = 1',
+                description: 'Imaginary unit powers cycle every 4 terms.',
+                example: '(3 + 2i)(1 - 4i) = 3 - 12i + 2i - 8i² = 3 - 10i + 8 = 11 - 10i.'
             }
         ];
 
-        function toggleFactModal(index) {
-            const fact = factDetails[index];
-            document.getElementById('modal-tag').innerText = fact.tag;
-            document.getElementById('modal-title').innerText = fact.title;
-            document.getElementById('modal-body').innerHTML = fact.body;
-            
-            const modal = document.getElementById('fact-modal');
-            modal.classList.remove('hidden');
-            setTimeout(() => modal.classList.add('opacity-100'), 10);
+        function renderFormulas(filter = 'all') {
+            const grid = document.getElementById('formula-grid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' ? formulas : formulas.filter(f => f.category === filter);
+
+            filtered.forEach((f, idx) => {
+                const card = document.createElement('div');
+                card.className = "glass-card rounded-2xl p-5 border border-slate-800 flex flex-col justify-between space-y-4 hover:border-slate-700 transition";
+
+                card.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-800 text-brand-400 border border-slate-700 uppercase tracking-wider">${f.category}</span>
+                            <span class="text-xs text-slate-500 math-font">Ref #${idx + 1}</span>
+                        </div>
+                        <h4 class="font-bold text-white text-base">${f.title}</h4>
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80 text-brand-400 math-font text-sm text-center">
+                            ${f.formula}
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">${f.description}</p>
+                    </div>
+
+                    <div class="border-t border-slate-800 pt-3">
+                        <button onclick="toggleExample(${idx})" class="text-xs text-accent-cyan hover:underline flex items-center gap-1 math-font">
+                            <i class="fa-solid fa-chevron-down text-[10px]" id="arrow-${idx}"></i> Step-by-Step Example
+                        </button>
+                        <div id="ex-${idx}" class="hidden mt-2 p-3 rounded-lg bg-slate-950/80 border border-slate-800 text-xs text-slate-300 math-font leading-relaxed">
+                            ${f.example}
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
         }
 
-        function closeFactModal() {
-            const modal = document.getElementById('fact-modal');
-            modal.classList.remove('opacity-100');
-            setTimeout(() => modal.classList.add('hidden'), 300);
+        function filterFormulas(cat) {
+            document.querySelectorAll('#formula-filters .filter-btn').forEach(btn => {
+                btn.className = "filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition";
+            });
+            event.target.className = "filter-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-brand-600 text-white transition";
+            renderFormulas(cat);
         }
 
-        // Data for Sensory Wheel / Selector
-        const sensoryData = [
-            {
-                title: "Forest Floor & Damp Earth",
-                score: "95%",
-                desc: "Gives black truffles their signature foundational scent—evoking rain-soaked oak leaves, dark humus soil, and ancient woodland flora. This note blooms as soon as the truffle is shaved warm.",
-                pairing: "Pastured Eggs, Cultured Butter, Aged Parmigiano",
-                heat: "Heat-sensitive (Best served < 60°C)"
-            },
-            {
-                title: "Musky Garlic & Sulfur",
-                score: "88%",
-                desc: "A rich, savory olfactory note created by organic sulfur volatiles. It delivers a gentle pungency akin to slow-roasted garlic without the sharp acidity, lingering pleasantly on the palate.",
-                pairing: "Prime Beef Carpaccio, Warm Tagliatelle, Creamy Risotto",
-                heat: "Infuses rapidly into animal fats & lipids"
-            },
-            {
-                title: "Toasted Hazelnut & Butter",
-                score: "82%",
-                desc: "Provides a warm, nutty backbone reminiscent of toasted hazelnut skins, brown butter, and dark cocoa nibs. It creates a velvety richness that balances the pungency.",
-                pairing: "Roasted Poultry, Potato Purée, Seared Scallops",
-                heat: "Pairs ideally with warm emulsion sauces"
+        function toggleExample(idx) {
+            const ex = document.getElementById(`ex-${idx}`);
+            const arrow = document.getElementById(`arrow-${idx}`);
+            if (ex.classList.contains('hidden')) {
+                ex.classList.remove('hidden');
+                arrow.className = "fa-solid fa-chevron-up text-[10px]";
+            } else {
+                ex.classList.add('hidden');
+                arrow.className = "fa-solid fa-chevron-down text-[10px]";
             }
-        ];
-
-        function selectSensory(index) {
-            const data = sensoryData[index];
-            const buttons = document.querySelectorAll('.sensory-btn');
-            
-            buttons.forEach((btn, idx) => {
-                if (idx === index) {
-                    btn.className = "sensory-btn w-full text-left p-4 rounded-xl border border-gold-500/30 bg-gold-500/10 flex items-center justify-between group transition-all";
-                } else {
-                    btn.className = "sensory-btn w-full text-left p-4 rounded-xl border border-stone-800 bg-truffle-900/40 hover:border-gold-500/30 flex items-center justify-between group transition-all";
-                }
-            });
-
-            const display = document.getElementById('sensory-display');
-            display.style.opacity = '0';
-
-            setTimeout(() => {
-                document.getElementById('sensory-title').innerText = data.title;
-                document.getElementById('sensory-score').innerText = data.score;
-                document.getElementById('sensory-desc').innerText = data.desc;
-                document.getElementById('sensory-pairing').innerText = data.pairing;
-                document.getElementById('sensory-heat').innerText = data.heat;
-                display.style.opacity = '1';
-            }, 150);
         }
 
-        // Data for Culinary Tabs
-        const tabContentData = {
-            trad: `
-                <div class="space-y-6">
-                    <div class="border-b border-stone-800 pb-4">
-                        <span class="text-xs uppercase tracking-widest text-gold-400 font-mono">Classical Technique</span>
-                        <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1">Thin Shaving over Warm Fats</h3>
-                    </div>
-                    <p class="text-stone-300 leading-relaxed text-sm">
-                        Traditional French and Italian gastronomy dictates that black truffles should never be subjected to direct cooking or high boiling temperatures. Instead, they are microplaned or shaved paper-thin using a stainless steel truffle shaver directly onto warm, buttered pasta, fried eggs, or creamy polenta.
-                    </p>
-                    <div class="bg-truffle-950 p-4 rounded-xl border border-gold-500/10 text-xs text-stone-400">
-                        <strong class="text-gold-400">Pro Tip:</strong> Store fresh truffles in an airtight glass jar alongside raw eggs for 48 hours. The porous eggshells absorb the volatile aroma, infusing the eggs internally before cooking!
-                    </div>
-                </div>
-            `,
-            modern: `
-                <div class="space-y-6">
-                    <div class="border-b border-stone-800 pb-4">
-                        <span class="text-xs uppercase tracking-widest text-gold-400 font-mono">Modern Culinary Science</span>
-                        <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1">Sous-Vide & Lipid Infusions</h3>
-                    </div>
-                    <p class="text-stone-300 leading-relaxed text-sm">
-                        Modern chefs leverage low-temperature sous-vide precision (55°C – 60°C) to extract fat-soluble aromatic molecules into neutral fats, clarified butter, or heavy cream without thermal degradation.
-                    </p>
-                    <p class="text-stone-300 leading-relaxed text-sm">
-                        Finely minced black truffle integrated into 82% fat European butter can be vacuum-sealed and frozen for months while keeping its aromatic profile completely intact.
-                    </p>
-                </div>
-            `,
-            rules: `
-                <div class="space-y-6">
-                    <div class="border-b border-stone-800 pb-4">
-                        <span class="text-xs uppercase tracking-widest text-gold-400 font-mono">Culinary Canon</span>
-                        <h3 class="font-serif text-2xl font-bold text-stone-100 mt-1">The 3 Imperative Rules</h3>
-                    </div>
-                    <ul class="space-y-4 text-sm text-stone-300">
-                        <li class="flex items-start gap-3">
-                            <span class="text-gold-400 font-bold">1.</span>
-                            <div>
-                                <strong class="text-stone-100">Never High-Heat Cook:</strong>
-                                <span class="text-stone-400 block mt-0.5">Direct searing or boiling vaporizes the delicate aroma molecules instantly.</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-gold-400 font-bold">2.</span>
-                            <div>
-                                <strong class="text-stone-100">Always Pair with Lipids:</strong>
-                                <span class="text-stone-400 block mt-0.5">Truffle volatiles bind selectively to fat molecules (butter, oil, egg yolks, cheese fat).</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-gold-400 font-bold">3.</span>
-                            <div>
-                                <strong class="text-stone-100">Clean with a Soft Brush:</strong>
-                                <span class="text-stone-400 block mt-0.5">Never soak truffles in water. Gently brush away soil under a light stream of cold water right before serving.</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            `
-        };
+        // --- 5. PRACTICE LAB & PROBLEM GENERATOR ---
+        let currentProblem = null;
+        let score = 0;
+        let total = 0;
+        let streak = 0;
 
-        function switchTab(tabKey) {
-            const tabs = ['trad', 'modern', 'rules'];
-            tabs.forEach(t => {
-                const btn = document.getElementById('tab-' + t);
-                if (t === tabKey) {
-                    btn.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-gold-500 text-truffle-950 shadow-md";
-                } else {
-                    btn.className = "px-6 py-2.5 rounded-full text-sm font-semibold text-stone-400 hover:text-stone-100 transition-all";
-                }
+        function generateProblem() {
+            const category = document.getElementById('practice-category').value;
+            const optionsContainer = document.getElementById('problem-options');
+            const feedback = document.getElementById('problem-feedback');
+            const solContainer = document.getElementById('solution-container');
+
+            feedback.className = "hidden p-4 rounded-xl border space-y-2";
+            solContainer.className = "hidden glass-card rounded-xl p-5 border border-slate-800 space-y-3";
+
+            if (category === 'quadratics') {
+                // Generate x^2 - (r1+r2)x + r1*r2 = 0
+                const r1 = Math.floor(Math.random() * 10) - 5;
+                const r2 = Math.floor(Math.random() * 10) - 5;
+                const b = -(r1 + r2);
+                const c = r1 * r2;
+
+                const bStr = b >= 0 ? `+ ${b}` : `- ${Math.abs(b)}`;
+                const cStr = c >= 0 ? `+ ${c}` : `- ${Math.abs(c)}`;
+
+                const question = `Find the real roots of the quadratic equation: x² ${bStr}x ${cStr} = 0`;
+                const correctAnswer = `x = ${r1}, x = ${r2}`;
+
+                // Wrong options
+                const wrong1 = `x = ${r1 + 1}, x = ${r2 - 1}`;
+                const wrong2 = `x = ${-r1}, x = ${-r2}`;
+                const wrong3 = `x = ${r1 + 2}, x = ${r2 + 2}`;
+
+                currentProblem = {
+                    topic: 'Quadratic Roots',
+                    text: question,
+                    correct: correctAnswer,
+                    options: shuffle([correctAnswer, wrong1, wrong2, wrong3]),
+                    steps: `
+                        <div>1. Factor the quadratic expression: (x - ${r1})(x - ${r2}) = 0</div>
+                        <div>2. Set each factor to zero: x - ${r1} = 0 or x - ${r2} = 0</div>
+                        <div>3. Solutions are: <strong>x = ${r1}</strong> and <strong>x = ${r2}</strong></div>
+                    `
+                };
+            } else if (category === 'logs') {
+                const base = [2, 3, 5, 10][Math.floor(Math.random() * 4)];
+                const exp = Math.floor(Math.random() * 4) + 1;
+                const val = Math.pow(base, exp);
+
+                const question = `Evaluate the logarithm: log<sub>${base}</sub>(${val})`;
+                const correctAnswer = `${exp}`;
+
+                currentProblem = {
+                    topic: 'Log Evaluation',
+                    text: question,
+                    correct: correctAnswer,
+                    options: shuffle([correctAnswer, `${exp + 1}`, `${exp - 1}`, `${exp * 2}`]),
+                    steps: `
+                        <div>1. Rewrite in exponential form: ${base}<sup>y</sup> = ${val}</div>
+                        <div>2. Recognize that ${base}<sup>${exp}</sup> = ${val}</div>
+                        <div>3. Therefore, log<sub>${base}</sub>(${val}) = <strong>${exp}</strong></div>
+                    `
+                };
+            } else if (category === 'complex') {
+                const a1 = Math.floor(Math.random() * 6) + 1;
+                const b1 = Math.floor(Math.random() * 6) + 1;
+                const a2 = Math.floor(Math.random() * 6) + 1;
+                const b2 = Math.floor(Math.random() * 6) + 1;
+
+                const realPart = a1 + a2;
+                const imagPart = b1 + b2;
+
+                const question = `Simplify the sum of complex numbers: (${a1} + ${b1}i) + (${a2} + ${b2}i)`;
+                const correctAnswer = `${realPart} + ${imagPart}i`;
+
+                currentProblem = {
+                    topic: 'Complex Addition',
+                    text: question,
+                    correct: correctAnswer,
+                    options: shuffle([correctAnswer, `${realPart - 1} + ${imagPart}i`, `${realPart} + ${imagPart + 2}i`, `${realPart * 2} + ${imagPart}i`]),
+                    steps: `
+                        <div>1. Group real parts and imaginary parts: (${a1} + ${a2}) + (${b1} + ${b2})i</div>
+                        <div>2. Calculate sums: ${realPart} + ${imagPart}i</div>
+                    `
+                };
+            } else {
+                // Sequences
+                const a1 = Math.floor(Math.random() * 10) + 1;
+                const d = Math.floor(Math.random() * 5) + 2;
+                const n = 6;
+                const an = a1 + (n - 1) * d;
+
+                const question = `Find the 6th term (a₆) of the arithmetic sequence with first term a₁ = ${a1} and common difference d = ${d}.`;
+                const correctAnswer = `${an}`;
+
+                currentProblem = {
+                    topic: 'Arithmetic Sequence',
+                    text: question,
+                    correct: correctAnswer,
+                    options: shuffle([correctAnswer, `${an + d}`, `${an - d}`, `${an + 2}`]),
+                    steps: `
+                        <div>1. Use arithmetic sequence formula: aₙ = a₁ + (n - 1)d</div>
+                        <div>2. Substitute values for n = 6: a₆ = ${a1} + (6 - 1) &middot; ${d}</div>
+                        <div>3. Calculate: a₆ = ${a1} + 5(${d}) = ${a1} + ${5*d} = <strong>${an}</strong></div>
+                    `
+                };
+            }
+
+            // Render Problem UI
+            document.getElementById('problem-topic-tag').innerText = `Topic: ${currentProblem.topic}`;
+            document.getElementById('problem-text').innerHTML = currentProblem.text;
+
+            optionsContainer.innerHTML = '';
+            currentProblem.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "p-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left text-white math-font text-sm transition flex items-center justify-between";
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-regular fa-circle text-slate-500"></i>`;
+                btn.onclick = () => checkAnswer(opt, btn);
+                optionsContainer.appendChild(btn);
             });
-
-            document.getElementById('tab-content').innerHTML = tabContentData[tabKey];
         }
 
-        // Initialize default tab
-        document.addEventListener('DOMContentLoaded', () => {
-            switchTab('trad');
+        function checkAnswer(selected, btn) {
+            total++;
+            const feedback = document.getElementById('problem-feedback');
+            const solContainer = document.getElementById('solution-container');
+            const stepsDiv = document.getElementById('solution-steps');
+
+            // Disable all option buttons
+            document.querySelectorAll('#problem-options button').forEach(b => b.disabled = true);
+
+            if (selected === currentProblem.correct) {
+                score++;
+                streak++;
+                btn.className = "p-4 rounded-xl bg-accent-emerald/20 border border-accent-emerald text-left text-accent-emerald font-bold math-font text-sm flex items-center justify-between";
+                btn.querySelector('i').className = "fa-solid fa-circle-check text-accent-emerald";
+
+                feedback.className = "p-4 rounded-xl bg-accent-emerald/10 border border-accent-emerald/30 text-accent-emerald text-sm font-semibold flex items-center gap-2";
+                feedback.innerHTML = `<i class="fa-solid fa-circle-check text-base"></i> Correct! Excellent job.`;
+            } else {
+                streak = 0;
+                btn.className = "p-4 rounded-xl bg-accent-rose/20 border border-accent-rose text-left text-accent-rose font-bold math-font text-sm flex items-center justify-between";
+                btn.querySelector('i').className = "fa-solid fa-circle-xmark text-accent-rose";
+
+                feedback.className = "p-4 rounded-xl bg-accent-rose/10 border border-accent-rose/30 text-accent-rose text-sm font-semibold flex items-center gap-2";
+                feedback.innerHTML = `<i class="fa-solid fa-circle-xmark text-base"></i> Incorrect. Correct Answer: ${currentProblem.correct}`;
+            }
+
+            document.getElementById('practice-score').innerText = `${score} / ${total}`;
+            document.getElementById('practice-streak').innerText = `${streak} 🔥`;
+
+            stepsDiv.innerHTML = currentProblem.steps;
+            solContainer.classList.remove('hidden');
+        }
+
+        function shuffle(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        // --- INITIALIZATION ON PAGE LOAD ---
+        window.addEventListener('DOMContentLoaded', () => {
+            solveQuadratic();
+            calcLog();
+            calcExp();
+            renderFormulas('all');
+            generateProblem();
         });
     </script>
 </body>
